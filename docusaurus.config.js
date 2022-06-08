@@ -1,12 +1,12 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const lightCodeTheme = require('prism-react-renderer/themes/duotoneLight');
+const darkCodeTheme = require('prism-react-renderer/themes/duotoneDark');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-    title: 'Online documentation for PyRAT',
+    title: 'PyRAT',
     tagline: 'Reachability Analysis Toolbox for  dynamic systems in Python',
     url: 'https://your-docusaurus-test-site.com',
     baseUrl: '/',
@@ -29,11 +29,7 @@ const config = {
     presets: [['classic', /** @type {import('@docusaurus/preset-classic').Options} */
         ({
             docs: {
-                sidebarPath: require.resolve('./sidebars.js'), // Please change this to your repo.
-                // Remove this to remove the "edit this page" links.
-                editUrl: 'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-            }, blog: {
-                showReadingTime: true, // Please change this to your repo.
+                remarkPlugins: [require('mdx-mermaid')], sidebarPath: require.resolve('./sidebars.js'), // Please change this to your repo.
                 // Remove this to remove the "edit this page" links.
                 editUrl: 'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
             }, theme: {
@@ -47,20 +43,20 @@ const config = {
                 title: 'PyRAT', logo: {
                     alt: 'My Site Logo', src: 'img/logo.svg',
                 }, items: [{
-                    type: 'doc', docId: 'intro', position: 'left', label: 'Tutorial',
-                }, {to: '/blog', label: 'Blog', position: 'left'}, {
+                    type: 'doc', docId: 'overview', position: 'left', label: 'Tutorial',
+                }, {to: '/api', label: 'API', position: "left"}, {
                     href: 'https://github.com/ASAG-ISCAS/PyRAT', label: 'GitHub', position: 'right',
                 },],
             }, footer: {
                 style: 'dark', links: [{
                     title: 'Docs', items: [{
-                        label: 'Tutorial', to: '/docs/intro',
+                        label: 'Overview', to: '/docs/overview',
                     },],
                 }, {
                     title: 'Contact', items: [{
                         label: 'ASAG-ISCAS', href: 'https://github.com/facebook/docusaurus',
                     },],
-                },], copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+                },], copyright: `Copyright © ${new Date().getFullYear()} PyRAT Developers. Built with Docusaurus.`,
             }, prism: {
                 theme: lightCodeTheme, darkTheme: darkCodeTheme,
             },
