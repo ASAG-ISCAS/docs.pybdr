@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# XSE2016CDC
+# XSE2016CAV
 
 Under-approximating backward reachable sets by polytopes
 
