@@ -96,10 +96,8 @@ vis2dGeo([I],[0,1])
 + with another interval
   $$
   [x]/[y] = [x] \cdot ([1]/[y]), [1]/[y] = 
-  \\left\\{ \begin{array}{rcl}
-  \emptyset & \mbox{if} & y= [0,0] \\\\
-  [\overline{y},1/\underline{y}] & \mbox{if} & 0 \in [y]
-  \end{array}\\right
+  \\left\\{ 
+  x \\\\
   $$
 
 </details>
