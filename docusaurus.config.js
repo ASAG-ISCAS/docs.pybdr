@@ -3,6 +3,8 @@
 
 const lightCodeTheme = require('prism-react-renderer/themes/duotoneLight');
 const darkCodeTheme = require('prism-react-renderer/themes/duotoneDark');
+const math = require('remark-math')
+const katex = require('rehype-katex')
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -29,13 +31,22 @@ const config = {
     presets: [['classic', /** @type {import('@docusaurus/preset-classic').Options} */
         ({
             docs: {
-                remarkPlugins: [require('mdx-mermaid')], sidebarPath: require.resolve('./sidebars.js'), // Please change this to your repo.
+                remarkPlugins: [require('mdx-mermaid'), math],
+                rehypePlugins: [katex],
+                sidebarPath: require.resolve('./sidebars.js'), // Please change this to your repo.
                 // Remove this to remove the "edit this page" links.
                 editUrl: 'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
             }, theme: {
                 customCss: require.resolve('./src/css/custom.css'),
             },
         }),],],
+
+    stylesheets: [{
+        href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
+        type: 'text/css',
+        integrity: 'sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM',
+        crossorigin: 'anonymous',
+    }],
 
     themeConfig: /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
         ({
@@ -58,7 +69,9 @@ const config = {
                     }, {label: 'Email', href: 'mailto:dingjianqiang0x@gmail.com'}],
                 },], copyright: `Copyright © ${new Date().getFullYear()} PyRAT Developers. Built with Docusaurus.`,
             }, prism: {
-                theme: lightCodeTheme, darkTheme: darkCodeTheme,
+                theme: require('prism-react-renderer/themes/shadesOfPurple'),
+                darkTheme: require('prism-react-renderer/themes/duotoneDark'),
+                defaultLanguage: 'python'
             },
         }),
 };

@@ -7,11 +7,11 @@ sidebar_position: 4
 ## Definition
 
 $$
-PZ := \\left\\{
-\sum_{i=1}^{h} \( \prod\_{k=1}^{p} \alpha\_{k}^{E\_{k,i}} \) G\_{\dot, i} +
-\sum\_{j=1}^{q} \beta\_{j} G\_{I(\dot, j)} |
-\alpha\_{k}, \beta\_{j} \in [-1,1]
-\\right\\}
+PZ := \left\{
+\sum_{i=1}^{h} ( \prod_{k=1}^{p} \alpha_{k}^{E_{k,i}} ) G_{\dot, i} +
+\sum_{j=1}^{q} \beta_{j} G_{I(\cdot, j)} |
+\alpha_{k}, \beta_{j} \in [-1,1]
+\right\}
 $$
 
 ## Operations

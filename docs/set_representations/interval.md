@@ -7,7 +7,7 @@ sidebar_position: 1
 ## Definition
 
 $$
-I := \\{ x \in \mathbb{R}^n | {\underline{x}}_{i} \leq x\_{i} \leq \overline{x}\_{i}, \forall i =1, \cdots , n \\}
+I := \{ x \in \mathbb{R}^n | {\underline{x}}_{i} \leq x_{i} \leq \overline{x}_{i}, \forall i =1, \cdots , n \}
 $$
 
 ## Example
@@ -95,9 +95,14 @@ vis2dGeo([I],[0,1])
 + with another vector
 + with another interval
   $$
-  [x]/[y] = [x] \cdot ([1]/[y]), [1]/[y] = 
-  \\left\\{ 
-  x \\\\
+  [x]/[y] = [x] \cdot (1/[y]), [1]/[y]=
+  \begin{cases}
+  \emptyset & \text{if} \ y = [0,0] \\
+  [1/\overline{y}, 1/\underline{y}] & \text{if} \ 0 \notin [y] \\
+  [1/\overline{y}, \infty[ & \text{if} \ (\underline{y}=0) \land  (\overline{y}>0) \\
+  ] - \infty, 1/\underline{y} & \text{if} \ (\underline{y}<0) \land (\overline{y}=0) \\
+  ] - \infty, \infty[ & \text{if} \ (\underline{y}<0) \land (\overline{y}>0)
+  \end{cases}
   $$
 
 </details>
@@ -106,14 +111,58 @@ vis2dGeo([I],[0,1])
 
 <details>
 <summary>power or '**'</summary>
+
+$$
+[x]^n = \begin{cases}  
+[\underline{x}^n,\overline{x}^n] & \text{if} \ (\underline{x} < 0) \lor (n \ \text{uneven})\\
+[\overline{x}^n, \underline{x}^n] & \text{if} \ (\overline{x} < 0) \land (n \ \text{even}) \\
+[0,\max(|\underline{x}|,|\overline{x}|)^n] & \text{if} \ (0 \in [x]) \land (n \ \text{even})
+\end{cases}
+$$
+
+where $n \in \N$
+
+</details>
+
+<details>
+<summary>absolute or '||'</summary>
+
+$$
+|[x]| =\begin{cases}
+[|\overline{x}|,|\underline{x}|] & \text{if} \ \overline{x}<0 \\
+[\underline{x}, \overline{x}] & \text{if} \ \underline{x}>0 \\
+[0,\max(|\underline{x}|,|\overline{x}|)] & \text{if} \ 0 \in [x]
+\end{cases}
+$$
+
 </details>
 
 <details>
 <summary>matrix multiplication or '@'</summary>
+
++ with another real matrix
+
+$$
+(X[Y])_{ij} = \sum_{k=1}^{n} X_{ik} [Y]_{kj}
+$$
+
++ with another interval matrix
+
+$$
+([X][Y])_{ij} = \sum_{k=1}^{n} [X]_{ik} [Y]_{kj}
+$$
+
+where $[X] \sube \R^{o \times n}$ and $[Y] \sube \R^{n \times p}$
+
 </details>
 
 <details>
 <summary>exponential</summary>
+
+$$
+e^{[x]} = [e^{\underline{x}}, e^{\overline{x}}]
+$$
+
 </details>
 
 <details>
@@ -164,10 +213,6 @@ vis2dGeo([I],[0,1])
 <summary>arctanh</summary>
 </details>
 
-<details>
-<summary>absolute</summary>
-</details>
-
 ### periodic functions
 
 <details>
@@ -189,4 +234,6 @@ International Workshop on Applied Verification for Continuous and Hybrid Systems
 
 [2]: Wikipedia contributors. (2022, May 5). Interval arithmetic. In Wikipedia, The Free Encyclopedia. Retrieved 08:05,
 June 9, 2022, from https://en.wikipedia.org/w/index.php?title=Interval_arithmetic&oldid=1086274354
+
+[3]: Rump, S. M. (1999). Fast and parallel interval arithmetic. BIT Numerical Mathematics, 39(3), 534-554.
 

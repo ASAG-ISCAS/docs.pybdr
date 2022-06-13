@@ -7,9 +7,9 @@ sidebar_position: 5
 ## Definition
 
 $$
-T(x) = \\left\\{
+T(x) = \left\{
 p(x)+y | y \in I
-\\right\\}
+\right\}
 $$
 
 where $p: \mathbb{R}^{p} \rightarrow \mathbb{R}^{n}$ is a polynomial function and $I \subset \mathbb{R}^{n}$ is an interval.

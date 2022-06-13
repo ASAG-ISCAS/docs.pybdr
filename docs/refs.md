@@ -32,3 +32,5 @@ International Workshop on Applied Verification for Continuous and Hybrid Systems
 set-based reachability. In Proceedings of the 22nd ACM International Conference on Hybrid Systems: Computation and
 Control (pp. 39-44).
 
+[9]: Rump, S. M. (1999). Fast and parallel interval arithmetic. BIT Numerical Mathematics, 39(3), 534-554.
+

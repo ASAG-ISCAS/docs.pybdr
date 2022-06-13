@@ -17,12 +17,12 @@ where $x(t) \in \mathbb{R}^{n}$ is the system state, $u(t) \in \mathbb{R}^{m}$ i
 
 $$
 \begin{bmatrix}
-\dot{x}_{0} \\\\
-\dot{x}\_{1}
+\dot{x}_{0} \\
+\dot{x}_{1}
 \end{bmatrix} =
 \begin{bmatrix}
-x\_{1} + u \\\\
-(1- x\_{0}^{2}) x\_{1} -x\_{0}
+x_{1} + u \\
+(1- x_{0}^{2}) x_{1} -x_{0}
 \end{bmatrix}
 $$
 

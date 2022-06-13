@@ -7,9 +7,9 @@ sidebar_position: 3
 ## Definition
 
 $$
-Z := \\{
-c+\sum_{i=1}^{p} {\beta}\_{i} g^{i} | {\beta}\_{i} \in [-1,1]
-\\}
+Z := \{
+c+\sum_{i=1}^{p} \beta_{i} g^{i} | \beta_{i} \in [-1,1]
+\}
 $$
 
 ## Operations

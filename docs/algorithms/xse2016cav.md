@@ -10,13 +10,26 @@ Under-approximating backward reachable sets by polytopes
 
 ```mermaid
 graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
+    A[U0 := TR]-->B[current U]
+    B--Bundary-->C[next Omega]
+    C--Polytope-->D[next O]
+    D--Contraction-->E[next U]
+    E-->F{Terminate?}
+    F-->|Yes| G[return UAB]
+    F-->|No| B
 ```
 
 ## Options
+
+target region: $\mathrm{TR}$
+
+time duration: $T$
+
+time step: $h$ such that $\frac{T-0}{h} \geq 1$ is an integer
+
+size of intervals enclosing the boundaries: $\epsilon_{M}$
+
+local error bounds: $\epsilon$
 
 ## References
 
