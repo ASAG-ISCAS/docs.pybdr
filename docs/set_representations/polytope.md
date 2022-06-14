@@ -9,17 +9,25 @@ sidebar_position: 2
 ### H-Representation
 
 $$
-P := \{ x \in \mathbb{R}^{n} | Cx \leq d\}, C \in \mathbb{R}^{q \times n}, d \in \mathbb{R}^{q}
+{\cal P} \coloneqq \{ x \in \mathbb{R}^{n} | Cx \leq d\}, C \in \mathbb{R}^{q \times n}, d \in \mathbb{R}^{q}
 $$
 
 ### V-Representation
 
 $$
-P := \{
+{\cal P} \coloneqq \{
 \sum_{i=1}^{r} {\alpha}_{i} v^{i} | {\alpha}_{i} \in \mathbb{R}, {\alpha}_{i} \geq 0, \sum_{i=1}^{r} {\alpha}_{i}
 =1
 \}
 $$
+
+## Example
+
+```python
+from pyrat.geometry import Polytope
+
+# TODO
+```
 
 ## Operations
 

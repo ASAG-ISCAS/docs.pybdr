@@ -7,7 +7,8 @@ sidebar_position: 1
 ## Definition
 
 $$
-I := \{ x \in \mathbb{R}^n | {\underline{x}}_{i} \leq x_{i} \leq \overline{x}_{i}, \forall i =1, \cdots , n \}
+{\cal I} \coloneqq \{ x \in \mathbb{R}^n | {\underline{x}}_{i} \leq x_{i} \leq \overline{x}_{i}, \forall i =1, \cdots ,
+n \}
 $$
 
 ## Example

@@ -7,12 +7,22 @@ sidebar_position: 5
 ## Definition
 
 $$
-T(x) = \left\{
-p(x)+y | y \in I
+{\cal T} \coloneqq \left\{
+P(x)+y \ \big| \ y \in I
 \right\}
 $$
 
-where $p: \mathbb{R}^{p} \rightarrow \mathbb{R}^{n}$ is a polynomial function and $I \subset \mathbb{R}^{n}$ is an interval.
+where $P: \mathbb{R}^{p} \rightarrow \mathbb{R}^{n}$ is a polynomial function and $I \subset \mathbb{R}^{n}$ is an
+interval.
+
+## Example
+
+```python
+from pyrat.geometry import TaylorModel
+from pyrat.util.visualization import plot
+
+# TODO
+```
 
 ## Operations
 
