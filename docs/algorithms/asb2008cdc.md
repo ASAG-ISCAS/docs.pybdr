@@ -6,17 +6,18 @@ sidebar_position: 1
 
 Reachability analysis of nonlinear systems with uncertain parameters using conservative linearization
 
-## Pipeline
-
-```mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-```
-
 ## Options
+
+```python
+taylor_terms: int = 4
+tensor_order: int = 2
+u_trans: np.ndarray = None
+factors: np.ndarray = None
+max_err: np.ndarray = None
+lin_err_x = None
+lin_err_u = None
+lin_err_f0 = None
+```
 
 ## References
 

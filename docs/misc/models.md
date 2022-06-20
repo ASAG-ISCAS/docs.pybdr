@@ -35,8 +35,8 @@ $$
 
 $$
 \begin{align*}
-\dot{x} &= -x +ty+t+u\_{1} +v\_{1} \\
-\dot{y} &= t^2x+y-t+u\_{2} +v\_{2}
+\dot{x} &= -x +ty+t+u_{1} +v_{1} \\
+\dot{y} &= t^2x+y-t+u_{2} +v_{2}
 \end{align*}
 $$
 
@@ -51,13 +51,13 @@ uncertainties, from https://flowstar.org/benchmarks/2-dimensional-ltv-system/
 
 $$
 \begin{align*}
-\dot{x}\_{0} &= 1.4 x\_{2} - 0.9 x\_{0} \\
-\dot{x}\_{1} &= 2.5 x\_{4} - 1.5 x\_{1} \\
-\dot{x}\_{2} &= 0.6x\_{6} - 0.8 x\_{1} x\_{2} \\
-\dot{x}\_{3} &= 2 - 1.3 x\_{2} x\_{3} \\
-\dot{x}\_{4} &= 0.7 x\_{0} - x\_{3}x\_{4} \\
-\dot{x}\_{5} &= 0.3 x\_{1} - 3.1 x\_{5} \\
-\dot{x}\_{6} &= 1.8 x\_{5} - 1.5 x\_{1} x\_{6}
+\dot{x}_{0} &= 1.4 x_{2} - 0.9 x_{0} \\
+\dot{x}_{1} &= 2.5 x_{4} - 1.5 x_{1} \\
+\dot{x}_{2} &= 0.6x_{6} - 0.8 x_{1} x_{2} \\
+\dot{x}_{3} &= 2 - 1.3 x_{2} x_{3} \\
+\dot{x}_{4} &= 0.7 x_{0} - x_{3}x_{4} \\
+\dot{x}_{5} &= 0.3 x_{1} - 3.1 x_{5} \\
+\dot{x}_{6} &= 1.8 x_{5} - 1.5 x_{1} x_{6}
 \end{align*}
 $$
 
@@ -72,12 +72,13 @@ of Dictyostelium. Molecular biology of the cell, 9(12), 3521-3532.
 
 $$
 \begin{align*}
-\dot{x}\_{0} &= (0.5 - 9.963e-6 x_{0} x\_{4} - 1.925e-5 x\_{0}) \times 3600 \\
-\dot{x}\_{1} &= (1.5e-3 + 1.5e-2 (x\_{0}^{2} / (547600 + x\_{0}^{2})) - 8e-4 x\_{1}) \times 3600 \\
-\dot{x}\_{2} &= (8e-4 x\_{1} - 1.444e-4 x\_{2}) \times 3600 \\
-\dot{x}\_{3} &= (1.66e-2 x\_{2} - 9e-4 x\_{3}) \times 3600 \\
-\dot{x}\_{4} &= (9e-4 x\_{3} - 1.66e-7 x\_{3} 2 - 9.963e-6 x\_{4} x\_{5}) \times 3600 \\
-\dot{x}\_{5} &= (0.5 - 3.209e-5 x\_{5} - 9.963e-6 x\_{4} x\_{5}) \times 3600
+\dot{x}_{0} &= (0.5 - 9.963 \times 10^{-6} x_{0} x_{4} - 1.925 \times 10^{-5} x_{0}) \times 3600 \\
+\dot{x}_{1} &= (1.5 \times 10^{-3} + 1.5 \times 10^{-2} (x_{0}^{2} / (547600 + x_{0}^{2})) - 8 \times 10^{-4} x_{1})
+\times 3600 \\
+\dot{x}_{2} &= (8 \times 10^{-4} x_{1} - 1.444 \times 10^{-4} x_{2}) \times 3600 \\
+\dot{x}_{3} &= (1.66 \times 10^{-2} x_{2} - 9 \times 10^{-4} x_{3}) \times 3600 \\
+\dot{x}_{4} &= (9 \times 10^{-4} x_{3} - 1.66 \times 10^{-7} x_{3} 2 - 9.963 \times 10^{-6} x_{4} x_{5}) \times 3600 \\
+\dot{x}_{5} &= (0.5 - 3.209 \times 10^{-5} x_{5} - 9.963 \times 10^{-6} x_{4} x_{5}) \times 3600
 \end{align*}
 $$
 
@@ -92,15 +93,15 @@ Frontiers in oncology, 3, 64.
 
 $$
 \begin{align*}
-\dot{x}\_{0} &= 50 x\_{2} - 0.1 x\_{0} x\_{5} \\
-\dot{x}\_{1} &= 100 x\_{3} - x\_{0} x\_{1} \\
-\dot{x}\_{2} &= 0.1 x\_{0} x\_{5} - 50 x\_{2} \\
-\dot{x}\_{3} &= x\_{1} x\_{5} - 100 x\_{3}  \\
-\dot{x}\_{4} &= 5 x\_{2} + 0.5 x\_{0} - 10 x\_{4} \\
-\dot{x}\_{5} &= 50 x\_{4} + 50 x\_{2} + 100 x\_{3} - x\_{5} (0.1 x\_{0} + x\_{1} + 2 x\_{7} + 1) \\
-\dot{x}\_{6} &= 50 x\_{3} + 0.01 x\_{1} - 0.5 x\_{6}  \\
-\dot{x}\_{7} &= 0.5 x\_{6} - 2x\_{5} x\_{7} + x\_{8} - 0.2 x\_{7} \\
-\dot{x}\_{8} &= 2 x\_{5} x\_{7} - x\_{8}
+\dot{x}_{0} &= 50 x_{2} - 0.1 x_{0} x_{5} \\
+\dot{x}_{1} &= 100 x_{3} - x_{0} x_{1} \\
+\dot{x}_{2} &= 0.1 x_{0} x_{5} - 50 x_{2} \\
+\dot{x}_{3} &= x_{1} x_{5} - 100 x_{3} \\
+\dot{x}_{4} &= 5 x_{2} + 0.5 x_{0} - 10 x_{4} \\
+\dot{x}_{5} &= 50 x_{4} + 50 x_{2} + 100 x_{3} - x_{5} (0.1 x_{0} + x_{1} + 2 x_{7} + 1) \\
+\dot{x}_{6} &= 50 x_{3} + 0.01 x_{1} - 0.5 x_{6} \\
+\dot{x}_{7} &= 0.5 x_{6} - 2x_{5} x_{7} + x_{8} - 0.2 x_{7} \\
+\dot{x}_{8} &= 2 x_{5} x_{7} - x_{8}
 \end{align*}
 $$
 
@@ -111,5 +112,25 @@ Proceedings of the National Academy of Sciences, 99(9), 5988-5992.
 
 ---
 
+### Water Tank 6Eq
 
+$$
+\begin{align*}
+\dot{x}_{0} &= u_{0} + 0.1 + k_{1} (4 -x_{5}) - k_{0} \sqrt{2gx_{0}} \\
+\dot{x}_{1} &= k_{0} \sqrt{2g (x_{0}-x_{1})} \\
+\dot{x}_{2} &= k_{0} \sqrt{2g (x_{1}-x_{2})} \\
+\dot{x}_{3} &= k_{0} \sqrt{2g (x_{2}-x_{3})} \\
+\dot{x}_{4} &= k_{0} \sqrt{2g (x_{3}-x_{4})} \\
+\dot{x}_{5} &= k_{0} \sqrt{2g (x_{4}-x_{5})}
+\end{align*}
+$$
 
+where $k_{0} = 0.015, k_{1}= 0.01, g=9.81$
+
+##### References
+
+[1]: Althoff, M., Stursberg, O., & Buss, M. (2008, December). Reachability analysis of
+nonlinear systems with uncertain parameters using conservative linearization. In 2008
+47th IEEE Conference on Decision and Control (pp. 4042-4048). IEEE.
+
+---
