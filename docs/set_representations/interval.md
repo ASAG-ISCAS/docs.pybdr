@@ -11,6 +11,12 @@ $$
 n \}
 $$
 
+:::caution
+In order to do computation simultaneously for intervals, we use tensor as bounds but a real number in our
+implementation, this is the difference between the theoretical definition and our real implementation, for more detail,
+please check our source code.
+:::
+
 ## Example
 
 ```python
