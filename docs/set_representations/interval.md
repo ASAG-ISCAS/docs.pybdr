@@ -151,64 +151,225 @@ $$
 
 <details>
 <summary>log</summary>
+
+$$
+\log{([x])} = \begin{cases}
+[\log{\underline{x}}, \log{\overline{x}} ] & \text{if} \ \underline{x}>0 \\
+[\mathrm{NaN}, \log{\overline{x}}] & \text{if} \ (\underline{x} < 0) \land (\overline{x} \geq 0) \\
+[\mathrm{NaN},\mathrm{NaN}] & \text{if} \ \overline{x} < 0
+\end{cases}
+$$
+
 </details>
 
 <details>
 <summary>sqrt</summary>
+
+$$
+\sqrt{[x]} =\begin{cases}
+[\sqrt{\underline{x}},\sqrt{\overline{x}}] & \text{if} \ \underline{x} \geq 0 \\
+[\mathrm{NaN}, \sqrt{\overline{x}}] & \text{if} \ (\underline{x} <0 ) \land (\overline{x} \geq 0) \\
+[\mathrm{NaN}, \mathrm{NaN}] & \text{if} \ \overline{x}<0
+\end{cases}
+$$
+
 </details>
 
 <details>
 <summary>arcsin</summary>
+
+$$
+\arcsin([x])=\begin{cases}
+[\arcsin(\underline{x}), \arcsin(\overline{x})] & \text{if} \ (\underline{x} \geq -1) \land (\overline{x} \leq 1), \\
+[\arcsin(\underline{x}), \mathrm{NaN}] & \text{if} \ (\underline{x} \in [-1,1]) \land (\overline{x} > 1), \\
+[\mathrm{NaN}, \arcsin(\overline{x})] & \text{if} \ (\underline{x} < -1) \land (\overline{x} \in [-1,1]), \\
+[\mathrm{NaN}, \mathrm{NaN}] & \text{if} \ (\underline{x} < -1) \land (\overline{x} >1)
+\end{cases}
+$$
+
 </details>
+
 
 <details>
 <summary>arccos</summary>
+
+$$
+\arccos([x])=\begin{cases}
+[\arccos(\overline{x}), \arccos(\underline{x})] & \text{if} \ (\underline{x} \geq -1) \land (\overline{x} \leq 1), \\
+[\arccos(\overline{x}), \mathrm{NaN}] & \text{if} \ (\underline{x} < -1) \land (\overline{x} \in [-1,1]), \\
+[\mathrm{NaN}, \arccos(\underline{x})] & \text{if} \ (\underline{x} \in [-1,1]) \land (\overline{x} > 1), \\
+[\mathrm{NaN}, \mathrm{NaN}] & \text{if} (\underline{x} < -1) \land (\overline{x} >1)
+\end{cases}
+$$
+
 </details>
 
 <details>
 <summary>arctan</summary>
-</details>
 
-<details>
-<summary>arctan</summary>
+$$
+\arctan([x])=[\arctan(\underline{x}), \arctan(\overline{x})]
+$$
+
 </details>
 
 <details>
 <summary>sinh</summary>
+
+$$
+\sinh([x]) = [\sinh(\underline{x}), \sinh(\overline{x})]
+$$
+
 </details>
+
 
 <details>
 <summary>cosh</summary>
+
+$$
+\cosh([x])=\begin{cases}
+[\cosh(\overline{x}), \cosh(\underline{x})] & \text{if} \ \overline{x} <0 ,\\
+[1, \cosh(\max(|\underline{x}|,|\overline{x}|))] & \text{if} \ (\underline{x} \leq 0) \land (\overline{x} \geq 0), \\
+[\cosh(\underline{x}), \cosh(\overline{x})] & \text{if} \ \underline{x} >0
+\end{cases}
+$$
+
 </details>
 
 <details>
 <summary>tanh</summary>
+
+$$
+\tanh([x])=[\tanh(\underline{x}), \tanh(\overline{x})]
+$$
+\
 </details>
+
+
 
 <details>
 <summary>arcsinh</summary>
+
+$$
+\mathrm{arcsinh}([x])=[\mathrm{arcsinh}(\underline{x}), \mathrm{arcsinh}(\overline{x})]
+$$
+
 </details>
 
 <details>
 <summary>arccosh</summary>
+
+$$
+\mathrm{arccosh}([x])= \begin{cases}
+[\mathrm{arccosh}(\underline{x}), \mathrm{arccosh}(\overline{x})] & \text{if} \ \underline{x} \geq -1,\\
+[\mathrm{NaN}, \mathrm{arccosh}(\overline{x})] & \text{if} \ (\underline{x}<1)\land(\overline{x} \geq 1 ), \\
+[\mathrm{NaN}, \mathrm{NaN}] & \text{if} \ \overline{x} <1
+\end{cases}
+$$
+
 </details>
 
 <details>
 <summary>arctanh</summary>
+
+$$
+\mathrm{arctanh}(x)=\begin{cases}
+[\mathrm{arctanh}(\underline{x}), \mathrm{arctanh}(\overline{x})] & \text{if} \ (\underline{x}>-1) \land (\overline{x}<
+1), \\
+[\mathrm{arctanh}(\underline{x}), \mathrm{NaN}] & \text{if} \ (\underline{x} \in ]-1,1[) \land (\overline{x} \geq 1), \\
+[\mathrm{NaN}, \mathrm{arctanh}(\overline{x})] & \text{if} \ (\underline{x} \leq -1) \land (\overline{x} \in ]-1,1[), \\
+[\mathrm{NaN}, \mathrm{NaN}] & \text{if} \ (\underline{x} \leq -1) \land (\overline{x} \geq 1)
+\end{cases}
+$$
+
 </details>
 
 ### periodic functions
 
 <details>
-<summary>mod</summary>
-</details>
-
-<details>
 <summary>sin</summary>
+
+$$
+\sin([x])=\begin{cases}
+[-1,1]  & \text{if} \ (\overline{x}-\underline{x} \geq 2\pi) \lor \\
+&  (\underline{y} \in R_1 \land \overline{y} \in R_1 \land \underline{y} > \overline{y}) \lor \\
+& (\underline{y} \in R_1 \land \overline{y} \in R_3) \lor \\
+& (\underline{y} \in R_2 \land \overline{y} \in R_2 \land \underline{y} > \overline{y}) \lor \\
+& (\underline{y} \in R_3 \land \overline{y} \in R_3 \land \underline{y} > \overline{y}) \\
+[\sin(\underline{y}), \sin(\overline{y})] & \text{if} \ (\underline{y} \in R_1 \land \overline{y} \in R_1 \land
+\underline{y} \leq \overline{y}) \lor \\
+& (\underline{y} \in R_3 \land \overline{y} \in R_3) \lor \\
+& (\underline{y} \in R_3 \land \overline{y} \in R_3 \land \underline{y} \leq \overline{y}) \\
+[\min(\sin(\underline{y}),\sin(\overline{y})),1] & \text{if} \ (\underline{y} \in R_1 \land \overline{y} \in R_2), \\
+& (\underline{y} \in R_3 \land \overline{y} \in R_2) \lor \\
+[-1,\max(\sin(\underline{y}),\sin(\overline{y}))] & \text{if} \ (\underline{y} \in R_2 \land \overline{y} \in R_1) \lor
+\\ & (\underline{y} \in R_2 \land \overline{y} \in R_3), \\
+[\sin(\overline{y}),\sin(\underline{y})] & \text{if} \ (\underline{y} \in R_2 \land \overline{y} \in R_2 \land
+\underline{y} \leq \overline{y})
+\end{cases}
+$$
+
+where $R_1=[0,\frac{\pi}{2}[, R_2=[\frac{\pi}{2},\frac{3\pi}{2}[, R_3=[\frac{3\pi}{2}, 2\pi[,
+\underline{y}=\mathrm{mod}(\underline{x},2\pi), \overline{y}=\mathrm{mod}(\overline{x},2\pi)$
+
 </details>
 
 <details>
 <summary>cos</summary>
+
+$$
+\cos([x])=\begin{cases}
+[-1,1] & \text{if} \ (\overline{x} - \underline{x} \geq 2 \pi) \lor \\
+& (\underline{y} \in R_1 \land \overline{y} \in R_1 \land \underline{y} > \overline{y}) \lor \\
+& (\underline{y} \in R_2 \land \overline{y} \in R_2 \land \underline{y} > \overline{y}),\\
+[\cos(\underline{y}), \cos(\overline{y})] & \text{if} \ (\underline{y} \in R_2 \land \overline{y} \in R_2 \land
+\underline{y} \leq \overline{y}), \\
+[\min(\cos(\underline{y}),\cos(\overline{y})),1] & \text{if} \ (\underline{y} \in R_2 \land \overline{y} \in R_1), \\
+[-1,\max(\cos(\underline{y}),\cos(\overline{y}))] & \text{if} \ (\underline{y} \in R_1 \land \overline{y} \in R_2), \\
+[\cos(\overline{y}), \cos(\underline{y})] & \text{if} \ (\underline{y} \in R_1 \land \overline{y} \in R_1 \land
+\overline{y} \leq \overline{y})
+\end{cases}
+$$
+
+where $R_1=[0,\pi[, R_2=[\pi,2\pi[, \underline{y}=\mathrm{mod}(\underline{x},2\pi), \overline{y}=\mathrm{mod}(
+\overline{x},2\pi)$
+
+</details>
+
+
+
+<details>
+<summary>tan</summary>
+
+$$
+\tan([x])=\begin{cases}
+]-\infty,\infty[ & \text{if} \ (\overline{x}-\underline{x} \geq \pi) \land \\
+& (\underline{z} \in R_1 \land \overline{z} \in R_1 \land \underline{z} > \overline{z}) \lor \\
+& (\underline{z} \in R_2 \land \overline{z} \in R_2 \land \underline{z} > \overline{z}) \lor \\
+& (\underline{z} \in R_1 \land \overline{z} \in R_2), \\
+[\tan(\underline{z}),\tan(\overline{z})] & \text{if} \ (\underline{z} \in R_1 \land \overline{z} \in R_1 \land
+\underline{z} \in \overline{z}) \lor \\
+& (\underline{z} \in R_2 \land \overline{z} \in R_2 \land \underline{z} \in \overline{z})
+\end{cases}
+$$
+
+where $R_1=[0,\frac{\pi}{2}[, R_2=[\frac{\pi}{2}, \pi[, \underline{z}=\mathrm{mod}(\underline{x},\pi),
+\overline{z}=\mathrm{mod}(\overline{x},\pi)$
+
+</details>
+
+<details>
+<summary>cot</summary>
+
+$$
+\cot([x]) = \begin{cases}
+]-\infty,\infty[ & \text{if} \ (\overline{x}-\underline{x} \geq \pi) \lor (\underline{z} > \overline{z}), \\
+[\cot(\overline{z}), \cot(\underline{z})] & \text{if} \ (\underline{z} \leq \overline{z})
+\end{cases}
+$$
+
+where $\underline{z}=\mathrm{mod}(\underline{x},\pi),\overline{z}=\mathrm{mod}(\overline{x},\pi)$
+
 </details>
 
 ## References
@@ -220,4 +381,7 @@ International Workshop on Applied Verification for Continuous and Hybrid Systems
 June 9, 2022, from https://en.wikipedia.org/w/index.php?title=Interval_arithmetic&oldid=1086274354
 
 [3]: Rump, S. M. (1999). Fast and parallel interval arithmetic. BIT Numerical Mathematics, 39(3), 534-554.
+
+[4]: Moore, R. E., Kearfott, R. B., & Cloud, M. J. (2009). Introduction to interval analysis. Society for Industrial and
+Applied Mathematics.
 
