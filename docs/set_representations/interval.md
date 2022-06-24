@@ -51,7 +51,7 @@ $$
 <summary>subtraction or '-'</summary>
 
 $$
-[x] - [y] = [\underline{x} - \underline{y}, \overline{x} - \overline{y}]
+[x] - [y] = [\underline{x} - \overline{y}, \overline{x} - \underline{y}]
 $$
 
 </details>
