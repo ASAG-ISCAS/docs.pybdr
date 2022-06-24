@@ -242,7 +242,7 @@ $$
 $$
 \tanh([x])=[\tanh(\underline{x}), \tanh(\overline{x})]
 $$
-\
+
 </details>
 
 
