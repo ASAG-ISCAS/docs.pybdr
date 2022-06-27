@@ -385,3 +385,6 @@ June 9, 2022, from https://en.wikipedia.org/w/index.php?title=Interval_arithmeti
 [4]: Moore, R. E., Kearfott, R. B., & Cloud, M. J. (2009). Introduction to interval analysis. Society for Industrial and
 Applied Mathematics.
 
+[5]: Shary, S. P. (2019). Numerical computation of formal solutions to interval linear systems of equations. arXiv
+preprint arXiv:1903.10272.
+

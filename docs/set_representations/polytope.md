@@ -42,10 +42,6 @@ from pyrat.geometry import Polytope
 <details>
 <summary> addition or '+'</summary>
 
-+ with another real number
-+ with another real vector
-+ with another interval
-
 </details>
 
 <details>

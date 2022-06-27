@@ -64,9 +64,7 @@ const config = {
                         label: 'Overview', to: '/docs/overview',
                     }, {label: 'Related Tools', to: '/docs/related_tools'}],
                 }, {
-                    title: 'Contact', items: [{
-                        label: 'ASAG-ISCAS', href: 'https://github.com/facebook/docusaurus',
-                    }, {label: 'Email', href: 'mailto:dingjianqiang0x@gmail.com'}],
+                    title: 'Contact', items: [{label: 'Email', href: 'mailto:dingjianqiang0x@gmail.com'}],
                 },], copyright: `Copyright © ${new Date().getFullYear()} PyRAT Developers. Built with Docusaurus.`,
             }, prism: {
                 theme: require('prism-react-renderer/themes/shadesOfPurple'),
