@@ -17,13 +17,20 @@ $$
 ## Implementation
 
 ```python
+import numpy as np
+from pyrat.algorithm import ASB2008CDC
+from pyrat.dynamic_system import NonLinSys
+from pyrat.geometry import Zonotope
+from pyrat.model import *
+from pyrat.util.visualization import plot
+
 # init dynamic system
-system = NonLinSys.Entity(VanDerPol())
+system = NonLinSys(Model(vanderpol, [2, 1]))
 
 # settings for the computation
 options = ASB2008CDC.Options()
 options.t_end = 3.5
-options.step = 0.004
+options.step = 0.01
 options.tensor_order = 2
 options.taylor_terms = 4
 options.r0 = [Zonotope([1.4, 2.4], np.diag([0.17, 0.06]))]
@@ -35,10 +42,11 @@ Zonotope.REDUCE_METHOD = Zonotope.REDUCE_METHOD.GIRARD
 Zonotope.ORDER = 50
 
 # reachable sets computation
-tps = ASB2008CDC.reach(system, options)
+ti, tp, _, _ = ASB2008CDC.reach(system, options)
 
+tp = [[r.geometry for r in l] for l in tp]
 # visualize the results
-plot(tps, [0, 1])
+plot(tp, [0, 1])
 ```
 
 ## Results

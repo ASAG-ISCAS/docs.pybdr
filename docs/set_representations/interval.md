@@ -17,15 +17,21 @@ implementation, this is the difference between the theoretical definition and ou
 please check our source code.
 :::
 
+---
+
 ## Example
 
 ```python
 from pyrat.geoemtry import Interval
-from pyrat.util.visualization import vis2dGeo
+from pyrat.util import plot
+
+I=Interval.rand(5,8,3)
+```
 
 I = Interval([-1,-2],[3,5])
-vis2dGeo([I],[0,1])
-```
+plot([I],[0,1])
+
+---
 
 ## Operations
 
@@ -33,32 +39,23 @@ vis2dGeo([I],[0,1])
 
 ### boundary
 
+___
+
 ## Arithmetic
 
-### scalar operations
-
-<details>
-<summary> addition or '+'</summary>
+### addition or '+'
 
 $$
 [x] + [y] = [\underline{x} + \underline{y}, \overline{x} + \overline{y}]
 $$
 
-</details>
-
-
-<details>
-<summary>subtraction or '-'</summary>
+### subtraction or '-'
 
 $$
 [x] - [y] = [\underline{x} - \overline{y}, \overline{x} - \underline{y}]
 $$
 
-</details>
-
-<details>
-<summary>multiplication or '*'</summary>
-
+### multiplication or '*'
 
 $$
 [x] \cdot [y] = [
@@ -67,10 +64,7 @@ $$
 ]
 $$
 
-</details>
-
-<details>
-<summary>division or '/'</summary>
+### division or '/'
 
 $$
 [x]/[y] = [x] \cdot (1/[y]), 1/[y]=
@@ -83,12 +77,7 @@ $$
 \end{cases}
 $$
 
-</details>
-
-### non-periodic functions
-
-<details>
-<summary>power or '**'</summary>
+### power or '**'
 
 $$
 [x]^n = \begin{cases}  
@@ -100,10 +89,7 @@ $$
 
 where $n \in \N$
 
-</details>
-
-<details>
-<summary>absolute or '||'</summary>
+### absolute or '||'
 
 $$
 |[x]| =\begin{cases}
@@ -113,10 +99,7 @@ $$
 \end{cases}
 $$
 
-</details>
-
-<details>
-<summary>matrix multiplication or '@'</summary>
+### matrix multiplication or '@'
 
 + real matrix with interval
 
@@ -138,19 +121,13 @@ $$
 
 where $[X] \sube \R^{o \times n}$ and $[Y] \sube \R^{n \times p}$
 
-</details>
-
-<details>
-<summary>exponential</summary>
+### exponential
 
 $$
 e^{[x]} = [e^{\underline{x}}, e^{\overline{x}}]
 $$
 
-</details>
-
-<details>
-<summary>log</summary>
+### log
 
 $$
 \log{([x])} = \begin{cases}
@@ -160,10 +137,7 @@ $$
 \end{cases}
 $$
 
-</details>
-
-<details>
-<summary>sqrt</summary>
+### sqrt
 
 $$
 \sqrt{[x]} =\begin{cases}
@@ -173,10 +147,7 @@ $$
 \end{cases}
 $$
 
-</details>
-
-<details>
-<summary>arcsin</summary>
+### arcsin
 
 $$
 \arcsin([x])=\begin{cases}
@@ -187,11 +158,7 @@ $$
 \end{cases}
 $$
 
-</details>
-
-
-<details>
-<summary>arccos</summary>
+### arccos
 
 $$
 \arccos([x])=\begin{cases}
@@ -202,29 +169,19 @@ $$
 \end{cases}
 $$
 
-</details>
-
-<details>
-<summary>arctan</summary>
+### arctan
 
 $$
 \arctan([x])=[\arctan(\underline{x}), \arctan(\overline{x})]
 $$
 
-</details>
-
-<details>
-<summary>sinh</summary>
+### sinh
 
 $$
 \sinh([x]) = [\sinh(\underline{x}), \sinh(\overline{x})]
 $$
 
-</details>
-
-
-<details>
-<summary>cosh</summary>
+### cosh
 
 $$
 \cosh([x])=\begin{cases}
@@ -234,30 +191,19 @@ $$
 \end{cases}
 $$
 
-</details>
-
-<details>
-<summary>tanh</summary>
+### tanh
 
 $$
 \tanh([x])=[\tanh(\underline{x}), \tanh(\overline{x})]
 $$
 
-</details>
-
-
-
-<details>
-<summary>arcsinh</summary>
+### arcsinh
 
 $$
 \mathrm{arcsinh}([x])=[\mathrm{arcsinh}(\underline{x}), \mathrm{arcsinh}(\overline{x})]
 $$
 
-</details>
-
-<details>
-<summary>arccosh</summary>
+### arccosh
 
 $$
 \mathrm{arccosh}([x])= \begin{cases}
@@ -267,10 +213,7 @@ $$
 \end{cases}
 $$
 
-</details>
-
-<details>
-<summary>arctanh</summary>
+### arctanh
 
 $$
 \mathrm{arctanh}(x)=\begin{cases}
@@ -282,12 +225,7 @@ $$
 \end{cases}
 $$
 
-</details>
-
-### periodic functions
-
-<details>
-<summary>sin</summary>
+### sin
 
 $$
 \sin([x])=\begin{cases}
@@ -312,10 +250,7 @@ $$
 where $R_1=[0,\frac{\pi}{2}[, R_2=[\frac{\pi}{2},\frac{3\pi}{2}[, R_3=[\frac{3\pi}{2}, 2\pi[,
 \underline{y}=\mathrm{mod}(\underline{x},2\pi), \overline{y}=\mathrm{mod}(\overline{x},2\pi)$
 
-</details>
-
-<details>
-<summary>cos</summary>
+### cos
 
 $$
 \cos([x])=\begin{cases}
@@ -334,12 +269,7 @@ $$
 where $R_1=[0,\pi[, R_2=[\pi,2\pi[, \underline{y}=\mathrm{mod}(\underline{x},2\pi), \overline{y}=\mathrm{mod}(
 \overline{x},2\pi)$
 
-</details>
-
-
-
-<details>
-<summary>tan</summary>
+###tan
 
 $$
 \tan([x])=\begin{cases}
@@ -356,10 +286,7 @@ $$
 where $R_1=[0,\frac{\pi}{2}[, R_2=[\frac{\pi}{2}, \pi[, \underline{z}=\mathrm{mod}(\underline{x},\pi),
 \overline{z}=\mathrm{mod}(\overline{x},\pi)$
 
-</details>
-
-<details>
-<summary>cot</summary>
+### cot
 
 $$
 \cot([x]) = \begin{cases}
@@ -369,8 +296,6 @@ $$
 $$
 
 where $\underline{z}=\mathrm{mod}(\underline{x},\pi),\overline{z}=\mathrm{mod}(\overline{x},\pi)$
-
-</details>
 
 ## References
 
