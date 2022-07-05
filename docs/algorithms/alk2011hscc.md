@@ -6,16 +6,6 @@ sidebar_position: 2
 
 Reachable set computation for uncertain time-varying linear systems
 
-## Pipeline
-
-```mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-```
-
 ## Options
 
 ## References
