@@ -57,3 +57,7 @@ plot(reachable,[0,1])
 reachable = HSCC2013.reach(system, options)
 plot(reachable,[0,1,2])
 ```
+
+### References
+
+[1]: 'https://matplotlib.org'

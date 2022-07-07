@@ -28,7 +28,17 @@ from pyrat.geometry import Zonotope
 
 ### reduce
 
+### cartesian product
+
+$$
+{\cal Z_0} \times {\cal Z_1} = \left\{ [z_0^T \ z_1^T]^T \ \big| \ z_0 \in {\cal Z_0}, z_1 \in {\cal Z_1} \right\}
+$$
+
 ### quadratic map
+
+$$
+[Z_0] Q [Z_1] = \sum_i^I \sum_j^J [Z_0]_i Q_{ij} [Z_1]_j
+$$
 
 ${\cal Z_{Q}}=\{\lambda | \lambda_{i}= x^T Q^{i} x, x \in {\cal Z}\}$ can be over approximated by a zonotope
 ${\cal Z}=(d,h^0, h^1, \cdots , h^{\delta})$ where $$\delta = \begin{pmatrix} p+2 \\ 2 \end{pmatrix} -1$$, the center is
@@ -89,10 +99,8 @@ $$
 \frac{a+b}{2} c,
 \left[
 \frac{b-a}{2} c,
-\frac{a+b}{2} g^0, \cdots,
-\frac{a+b}{2} g^p,
-\frac{b-a}{2} g^0, \cdots,
-\frac{b-a}{2} g^p
+\frac{a+b}{2} G,
+\frac{b-a}{2} G
 \right]
 \right>
 $$
@@ -103,8 +111,8 @@ $$
 \left<c_{0},G_{0} \right> \cdot \left<c_{1},G_{1} \right> =
 \left<
 c_0 c_1,
-\left[c_1 g_0^0, \cdots , c_0 g_0^p,
-c_0 g_1^0, \cdots, c_1 g_1^q,
+\left[
+c_1 G_0, c_0 G_1,
 g_0^0 g_1^0, \cdots, g_0^i g_1^j, \cdots, g_0^p g_1^q \right]
 \right>
 $$

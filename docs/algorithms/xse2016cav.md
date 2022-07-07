@@ -8,15 +8,10 @@ Under-approximating backward reachable sets by polytopes
 
 ## Options
 
-target region: $\mathrm{TR}$
-
-time duration: $T$
-
-time step: $h$ such that $\frac{T-0}{h} \geq 1$ is an integer
-
-size of intervals enclosing the boundaries: $\epsilon_{M}$
-
-local error bounds: $\epsilon$
+```python
+epsilon_m: float = np.inf  # for boundary sampling
+epsilon: float = np.inf  # for backward verification
+```
 
 ## References
 
