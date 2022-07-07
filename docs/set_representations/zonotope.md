@@ -12,7 +12,7 @@ c+\sum_{i=1}^{p} \beta_{i} g^{i} \ \big| \ \beta_{i} \in [-1,1]
 \}
 $$
 
-shorthand as ${\cal Z}=\left<c,G \right>$.
+shorthand as ${\cal Z}=\left<c,G \right>$, order defined as $o=\frac{G_{col}}{G_{row}}$
 
 ## Example
 
@@ -146,3 +146,7 @@ dissertation, Technische Universität München).
 [4]: Althoff, M., Krogh, B. H., & Stursberg, O. (2011). Analyzing reachability of linear dynamic systems with parametric
 uncertainties. In Modeling, Design, and Simulation of Systems with Uncertainties (pp. 69-94). Springer, Berlin,
 Heidelberg.
+
+[5]: Yang, X., & Scott, J. K. (2018). A comparison of zonotope order reduction techniques. Automatica, 95, 378-384.
+
+[6]: Althoff, M. (2015). On computing the minkowski difference of zonotopes. arXiv preprint arXiv:1512.02794.
