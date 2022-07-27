@@ -11,7 +11,6 @@ $$
 $$
 
 structure the error distributed inside the given interval, this mapping makes us can describe the error chang explicitly
-as the system evolving.
 
 shorthand as ${\cal FS}=\left< c ,A, B, \Alpha \right>$. where $n$ defines the max allowed frequency used to describe
 the error
