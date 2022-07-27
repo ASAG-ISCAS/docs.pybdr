@@ -8,7 +8,7 @@ sidebar_position: 6
 
 $$
 {\cal FLS} := \left\{
-c+ \beta \sum_k^n \bigg[ a_k cos(k\theta) + b_k sin(k\theta) \bigg] + I_{\infty}^n, \theta \in D, \beta \in [0,1]
+c+ \beta \sum_k^n \bigg[ a_k cos(k\theta) + b_k sin(k\theta) \bigg] + R^n(\theta), \theta \in D, \beta \in [0,1]
 \right\}
 $$
 
@@ -110,8 +110,8 @@ c_0 c_1 + \beta_1 \sum_j^n c_0 \big[a_j^1 cos(j\theta_1) + b_j^1 sin(j\theta_1) 
 \left\{
 x | x = c_0 c_1 +
 \sum_i^n \bigg[
-[\beta_0(a_i^0+b_i^0) + \beta_1(a_i^1-b_i^1)] cos(\frac{i(\theta_0 + \theta_1)}{2}) +
-[\beta_0(b_i^0 - a_i^0) + \beta_1(a_i^1+b_i^1)] sin(\frac{i(\theta_0 + \theta_1)}{2})
+[\beta_0 c_1(a_i^0+b_i^0) + \beta_1 c_0(a_i^1-b_i^1)] cos(\frac{i(\theta_0 + \theta_1)}{2}) +
+[\beta_0 c_1(b_i^0 - a_i^0) + \beta_1 c_0(a_i^1+b_i^1)] sin(\frac{i(\theta_0 + \theta_1)}{2})
 \bigg] +
 \right\}
 \end{align*}
