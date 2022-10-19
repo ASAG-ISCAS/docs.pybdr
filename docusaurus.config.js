@@ -11,7 +11,7 @@ const config = {
     title: 'PyBDR',
     tagline: 'Boundary analysis based Reachability analysis Toolbox for dynamic systems in Python',
     url: 'https://ASAG-ISCAS.github.io/docs.pybdr/',
-    baseUrl: '/',
+    baseUrl: '/docs.pybdr/',
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'warn',
     favicon: 'img/favicon.ico',
