@@ -58,7 +58,7 @@ const config = {
                 }, items: [{
                     type: 'doc', docId: 'overview', position: 'left', label: 'Tutorial',
                 }, {
-                    href: 'https://github.com/ASAG-ISCAS/PyRAT', label: 'GitHub', position: 'right',
+                    href: 'https://github.com/ASAG-ISCAS/PyBDR', label: 'GitHub', position: 'right',
                 },],
             }, footer: {
                 style: 'dark', links: [{

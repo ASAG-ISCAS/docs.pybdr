@@ -55,7 +55,7 @@ Example files are provided to show how to use the tool to calculate reachable se
 provided and modify the dynamics and parameters required for the calculation to see the effect of using different
 settings for calculating system reachable sets.
 
-For example, consider a dynamical system of the following form:
+For example, consider a dynamic system:
 
 $$
 \begin{align*}
@@ -65,7 +65,7 @@ $$
 $$
 
 :::caution
-The model is already built into the model module of this tool and can be loaded directly from it. The model can be
+The model is already built into the `model` module of this tool and can be loaded directly from it. The model can be
 defined manually in the following way.
 
 ```python
