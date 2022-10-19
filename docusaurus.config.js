@@ -9,8 +9,8 @@ const katex = require('rehype-katex')
 /** @type {import('@docusaurus/types').Config} */
 const config = {
     title: 'PyBDR',
-    tagline: 'Boundary analysis based Reachability analysis Toolbox for  dynamic systems in Python',
-    url: 'https://your-docusaurus-test-site.com',
+    tagline: 'Boundary analysis based Reachability analysis Toolbox for dynamic systems in Python',
+    url: 'https://ASAG-ISCAS.github.io/docs.pybdr/',
     baseUrl: '/',
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'warn',
@@ -19,7 +19,9 @@ const config = {
     // GitHub pages deployment config.
     // If you aren't using GitHub pages, you don't need these.
     organizationName: 'ASAG-ISCAS', // Usually your GitHub org/user name.
-    projectName: 'PyBDR', // Usually your repo name.
+    projectName: 'docs.pybdr', // Usually your repo name.
+    trailingSlash: false,
+    deploymentBranch: 'gh-pages',
 
     // Even if you don't use internalization, you can use this field to set useful
     // metadata like html lang. For example, if your site is Chinese, you may want
