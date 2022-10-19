@@ -47,14 +47,3 @@ x_{1}
 \end{bmatrix}
 \end{align*}
 $$
-
-```python
-from pyrat.dynamic_system import LinSyS
-import numpy as np
-
-# TODO
-```
-
-## Operations
-
-### evaluate

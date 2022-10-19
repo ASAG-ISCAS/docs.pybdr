@@ -18,9 +18,19 @@ shorthand as ${\cal Z}=\left<c,G \right>$, order defined as $o=\frac{G_{col}}{G_
 
 ```python
 from pyrat.geometry import Zonotope
+from pyrat.geometry.operation import partition
+from pyrat.util.visualization import plot
 
-# TODO
+# random zonotope with 100 generators in 2d space
+z = Zonotope.rand(2, 100)
+# split this zonotope in smaller cells as zonotope
+zono_parts = partition(z, 1, Geometry.TYPE.ZONOTOPE)
+
+# visualize the final result
+plot([*zono_parts,z], [0, 1])
 ```
+
+![](imgs/zonotope_demo.png)
 
 ## Operations
 

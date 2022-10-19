@@ -23,13 +23,16 @@ please check our source code.
 
 ```python
 from pyrat.geoemtry import Interval
-from pyrat.util import plot
+from pyrat.util.visualization import plot
+from pyrat.geometry import Geometry
+from pyrat.geometry.operation import partition
 
-I=Interval.rand(5,8,3)
+a = Interval([-1,-2],[3,5])
+parts = partition(a, 0.1, Geometry.TYPE.INTERVAL)
+plot([*parts,a], [0, 1])
 ```
 
-I = Interval([-1,-2],[3,5])
-plot([I],[0,1])
+![](imgs/interval_demo.png)
 
 ---
 

@@ -4,7 +4,34 @@ sidebar_position: 4
 
 # Functional
 
-Several auxiliary functions provided for supporting the computation.
+Several auxiliary modules provided for supporting the computation.
+
+## Boundary
+
++ interval boundary as interval
++ interval boundary as zonotope
++ polytope boundary as interval
++ polytope boundary as zonotope
++ zonotope boundary as zonotope
+
+## Convert
+
++ from points to interval
++ from points to polytope
++ from interval to zonotope
++ from interval to polytope
++ from zonotope to interval
+
+## Enclose
+
++ enclose zonotopes by zonotope
+
+## Partition
+
++ split interval into cells as interval
++ split interval into cells as zonotope
++ split zonotope into cells as interval
++ split zonotope into cells as zonotope
 
 ---
 

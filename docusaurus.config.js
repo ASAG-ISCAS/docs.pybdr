@@ -8,7 +8,7 @@ const katex = require('rehype-katex')
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-    title: 'PyBRT',
+    title: 'PyBDR',
     tagline: 'Boundary analysis based Reachability analysis Toolbox for  dynamic systems in Python',
     url: 'https://your-docusaurus-test-site.com',
     baseUrl: '/',
@@ -19,7 +19,7 @@ const config = {
     // GitHub pages deployment config.
     // If you aren't using GitHub pages, you don't need these.
     organizationName: 'ASAG-ISCAS', // Usually your GitHub org/user name.
-    projectName: 'PyBRT', // Usually your repo name.
+    projectName: 'PyBDR', // Usually your repo name.
 
     // Even if you don't use internalization, you can use this field to set useful
     // metadata like html lang. For example, if your site is Chinese, you may want
@@ -51,11 +51,11 @@ const config = {
     themeConfig: /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
         ({
             navbar: {
-                title: 'PyBRT', logo: {
+                title: 'PyBDR', logo: {
                     alt: 'My Site Logo', src: 'img/logo.svg',
                 }, items: [{
                     type: 'doc', docId: 'overview', position: 'left', label: 'Tutorial',
-                }, {to: '/api', label: 'API', position: "left"}, {
+                }, {
                     href: 'https://github.com/ASAG-ISCAS/PyRAT', label: 'GitHub', position: 'right',
                 },],
             }, footer: {

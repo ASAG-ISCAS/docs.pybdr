@@ -6,26 +6,182 @@ sidebar_position: 2
 
 ## Installation
 
-## Dependencies
+Currently, this tool only supports manually install from source code, which means just copy source code into appropriate
+path like using Matlab libraries. In order to facilitate the addition and management of python system paths, it is
+recommended that users use Pycharm as an IDE for code development and testing.
 
-## Features
+### Virtual Environment
+
+We recommend that users use [miniconda](https://docs.conda.io/en/latest/miniconda.html)
+to initialise a virtual environment for the subsequent installation and running of third party libraries. The steps are
+as follows.
+
+In the user's current working directory, the user can initialise a virtual test environment called `pybdr_lab` using the
+following command.
+
+```shell
+conda create -n pybdr_lab
+```
+
+After the virtual environment has been initialized, the user activates the virtual test environment named pybdr_lab that
+has just been initialized with the following command.
+
+```shell
+conda activate pybdr_lab
+```
+
+### Dependencies
+
+Now, the user can install the necessary third party libraries in this virtual environment using the following
+series of commands.
+
+```shell
+conda install matplotlib
+conda install -c conda-forge numpy
+conda install -c conda-forge cvxpy
+conda install scipy
+conda install -c mosek mosek
+pip install pypoman
+conda install -c anaconda sympy
+pip install open3d
+```
+
+For the reason we may use Mosek as a solver for optimisation, we highly recommend you to apply for an official personal
+licence, the steps for which can be found at [this link](https://docs.mosek.com/10.0/licensing/index.html).
+
+## How to use
+
+Example files are provided to show how to use the tool to calculate reachable sets. Users can refer to the example files
+provided and modify the dynamics and parameters required for the calculation to see the effect of using different
+settings for calculating system reachable sets.
+
+For example, consider a dynamical system of the following form:
+
+$$
+\begin{align*}
+\dot{x} &= y \\
+\dot{y} &= (1-x^2)y-x
+\end{align*}
+$$
+
+:::caution
+The model is already built into the model module of this tool and can be loaded directly from it. The model can be
+defined manually in the following way.
 
 ```python
 from sympy import *
 
-def tank6eq(x, u):
-    # parameters
-    k0, k1, g = 0.015, 0.01, 9.81
-    # dynamic
-    dxdt = [None] * 6
+def vanderpol(x, u):
+    mu = 1
 
-    dxdt[0] = u[0] + 0.1 + k1 * (4 - x[5]) - k0 * sqrt(2 * g) * sqrt(x[0])
-    dxdt[1] = k0 * sqrt(2 * g) * (sqrt(x[0]) - sqrt(x[1]))
-    dxdt[2] = k0 * sqrt(2 * g) * (sqrt(x[1]) - sqrt(x[2]))
-    dxdt[3] = k0 * sqrt(2 * g) * (sqrt(x[2]) - sqrt(x[3]))
-    dxdt[4] = k0 * sqrt(2 * g) * (sqrt(x[3]) - sqrt(x[4]))
-    dxdt[5] = k0 * sqrt(2 * g) * (sqrt(x[4]) - sqrt(x[5]))
+    dxdt = [None] * 2
+
+    dxdt[0] = x[1]
+    dxdt[1] = mu * (1 - x[0] ** 2) * x[1] - x[0] + u[0]
+
     return Matrix(dxdt)
 ```
 
+:::
+
+The corresponding sample code is as follows:
+
+```python
+import numpy as np
+
+from pyrat.algorithm import ASB2008CDC
+from pyrat.dynamic_system import NonLinSys
+from pyrat.geometry import Zonotope, Interval, Geometry
+from pyrat.model import *
+from pyrat.util.visualization import plot
+
+# init dynamic system
+system = NonLinSys(Model(vanderpol, [2, 1]))
+
+# settings for the computation
+options = ASB2008CDC.Options()
+options.t_end = 6.74
+options.step = 0.005
+options.tensor_order = 3
+options.taylor_terms = 4
+options.r0 = [Zonotope([1.4, 2.4], np.diag([0.17, 0.06]))]
+options.u = Zonotope.zero(1, 1)
+options.u_trans = np.zeros(1)
+
+# settings for the using geometry
+Zonotope.REDUCE_METHOD = Zonotope.REDUCE_METHOD.GIRARD
+Zonotope.ORDER = 50
+
+# reachable sets computation
+ti, tp, _, _ = ASB2008CDC.reach(system, options)
+
+# visualize the results
+plot(tp, [0, 1])
+```
+
+We use this setting to check the evolution of this system in the time interval [0,6.74] using a time step of
+0.005, and finally the results can be visualized below.
+
+![](imgs/overview_demo.png)
+
+## Misc
+
+This tool provides necessary support to assist in the implementation of potential algorithms.
+
+### interval tensor
+
+In order to improve the efficiency of the calculation, this tool inherits the syntax of the third-party library `numpy`
+for the characteristics of intervals, and constructs the interval tensor to support interval arithmetic. This data
+structure inherits the syntax features of `numpy` and supports the interval tensor calculation based on the broadcast
+mechanism, which realises the parallel calculation of interval data.
+
+### interval compatible symbolic operations
+
+The symbolic calculation relies heavily on the third-party library `sympy`. Since the calculation of the reachable
+set of a non-linear system based on set propagation requires a Taylor expansion approximation of the non-linear system
+at a specified state point, this tool provides derivative operations of arbitrary order for the system based on `sympy`,
+and in combination with the aforementioned interval tensor data structure, it supports both real-valued and interval
+operations for the value of the high-dimensional derivative tensor obtained from the symbolic calculation, simplifying
+the implementation of subsequent algorithms for the reachable set calculation.
+
+### dynamic models
+
+Common dynamic models used in academic research are provided internally for testing and can be viewed in the
+module `model`.
+
+### visualization
+
+In order to facilitate the analysis and presentation of the results of the calculated reachable sets, we provide
+basic visualisation API for the visualisation of the calculated results, which already be implemented in the
+`visualisation` module.
+
+## Frequently Asked Questions and Troubleshooting
+
+### the computation is too slow
+
+- The tool supports two modes of computation for reachable sets, one is to compute the reachable set of evolved states
+  based on the set of states as a whole in a set propagation manner, and the other is to compute the reachable set of
+  evolved states based on the initial state set boundary in a set.
+
+  There are several reasons for the too slow computation: too large computational time intervals, too small step,
+  too high Taylor expansion orders, and dimensionality of the dynamical system is too high.
+
+  If these problems occur, experiments can be carried out using a smaller computational time horizon, a smaller order of
+  expansion such as 2, and a larger time step, and then gradually increase the computational time horizon and the order
+  of expansion according to the results of this setting, in order to obtain the desired set of reachable states at a
+  suitable time consumption.
+
+### set explosion
+
+- Due to the wrapping effect of set propagation based algorithms, it is inevitable that the range of the computed
+  reachable state sets is too conservative under inappropriate settings, making it impossible to obtain a reachable
+  state set that meets the requirements.
+
+  If these problems occur, the accuracy of the reachable set calculation can be improved by calculating the reachable
+  set based on the boundaries, or by split initial set into small cells, or by reducing the step and increasing the
+  order of the Taylor expansion. then the set explosion problem can be avoided in the computation possibly.
+
 ## Acknowledgement
+
+This tool has been developed with reference to models used in tools such as Flow*, CORA and other
+reachable set calculation tools.

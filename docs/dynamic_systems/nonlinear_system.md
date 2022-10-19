@@ -25,14 +25,3 @@ x_{1} + u \\
 (1- x_{0}^{2}) x_{1} -x_{0}
 \end{bmatrix}
 $$
-
-```python
-from pyrat.dynamic_system import NonLinSys
-import numpy as np
-
-# TODO
-```
-
-## Operations
-
-### evaluate
