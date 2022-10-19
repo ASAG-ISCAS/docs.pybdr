@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# High-dimensional Derivation Based on Symbolic Computation
+# High-dimensional Partial Derivative Based on Symbolic Computation
 
 We test our implementation on a PC with following configurations:
 
