@@ -4,6 +4,8 @@ This website is built using [Docusaurus 2](https://docusaurus.io/), a modern sta
 
 ### Installation
 
+Install `nodejs` by `nvm`, then install `yarn` by `npm install --global yarn`, then init this website locally by 
+
 ```
 $ yarn
 ```
