@@ -17,7 +17,8 @@ demand on computation time and memory, often rendering the existing reachability
 complex real-world applications. Not being forced to explore the full, i.g. exponential in the dimensionality, number of
 partitions could help such procedures tremendously. This is the theme of this tool, which explores means of computing
 the full reachable state space based on state-exploratory analysis of just a small sub-volume of the initial state set,
-namely a set enclosing its boundary.
+namely a set enclosing its boundary. For theoretical analysis, please refer
+to [Xue, Bai, Arvind Easwaran, Nam-Joon Cho, and Martin Fränzle. "Reach-avoid verification for nonlinear systems based on boundary analysis." IEEE Transactions on Automatic Control 62, no. 7 (2016): 3518-3523.](https://ieeexplore.ieee.org/abstract/document/7585104).
 
 ## Installation
 
@@ -172,29 +173,24 @@ basic visualisation API for the visualisation of the calculated results, which a
 
 ## Frequently Asked Questions and Troubleshooting
 
-### the computation is too slow
+### the computation is slow
 
 - The tool supports two modes of computation for reachable sets, one is to compute the reachable set of evolved states
-  based on the set of states as a whole in a set propagation manner, and the other is to compute the reachable set of
-  evolved states based on the initial state set boundary in a set.
+  based on the entire initial set in a set propagation manner, and the other is to compute the reachable set of evolved
+  states based on the boundary of the initial state set.
 
-  There are several reasons for the too slow computation: too large computational time intervals, too small step,
-  too high Taylor expansion orders, and dimensionality of the dynamical system is too high.
+  There are several reasons for slow computations: large computational time intervals, small step, high Taylor expansion
+  orders, and a large number of state variables.
 
-  If these problems occur, experiments can be carried out using a smaller computational time horizon, a smaller order of
-  expansion such as 2, and a larger time step, and then gradually increase the computational time horizon and the order
-  of expansion according to the results of this setting, in order to obtain the desired set of reachable states at a
-  suitable time consumption.
+  In order to speed up the computations, experiments can be carried out using a smaller computational time horizon, a
+  smaller order of expansion such as 2, and a larger time step, and then gradually increase the computational time
+  horizon and the order of expansion according to the results of this setting, in order to obtain the desired set of
+  reachable states at a suitable time consumption.
 
-### set explosion
+### controlling the wrapping effect
 
-- Due to the wrapping effect of set propagation based algorithms, it is inevitable that the range of the computed
-  reachable state sets is too conservative under inappropriate settings, making it impossible to obtain a reachable
-  state set that meets the requirements.
-
-  If these problems occur, the accuracy of the reachable set calculation can be improved by calculating the reachable
-  set based on the boundaries, or by split initial set into small cells, or by reducing the step and increasing the
-  order of the Taylor expansion. then the set explosion problem can be avoided in the computation possibly.
+- One can further improve the accuracy of the reachable set calculation based on splitting boundaries of initial sets,
+  or by reducing the step and increasing the order of the Taylor expansion.
 
 ## Acknowledgement
 
