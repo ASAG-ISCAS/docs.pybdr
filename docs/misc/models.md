@@ -164,7 +164,7 @@ c &= 1
 \end{align*}
 $$
 
-### References
+#### References
 
 [1]: Xue, B., Li, R., Zhan, N., & Fränzle, M. (2021, May). Reach-avoid analysis for stochastic discrete-time systems. In
 2021 American Control Conference (ACC) (pp. 4879-4885). IEEE.
