@@ -140,7 +140,7 @@ nonlinear systems with uncertain parameters using conservative linearization. In
 $$
 \begin{align*}
 \dot{x}_{0} &= -0.5x_{0}-0.5x_{1}+0.5x_{0} x_{1} \\
-\dot{x}_{1} &= -0.5x_{1} + 1
+\dot{x}_{1} &= -0.5x_{1} + 1 + u
 \end{align*}
 $$
 
