@@ -134,3 +134,53 @@ nonlinear systems with uncertain parameters using conservative linearization. In
 47th IEEE Conference on Decision and Control (pp. 4042-4048). IEEE.
 
 ---
+
+### 2D ODE
+
+$$
+\begin{align*}
+\dot{x}_{0} &= -0.5x_{0}-0.5x_{1}+0.5x_{0} x_{1} \\
+\dot{x}_{1} &= -0.5x_{1} + 1
+\end{align*}
+$$
+
+#### References
+
+[1]: Xue, B., Li, R., Zhan, N., & Fränzle, M. (2021, May). Reach-avoid analysis for stochastic discrete-time systems. In
+2021 American Control Conference (ACC) (pp. 4879-4885). IEEE.
+
+--- 
+
+### Lotka-Volterra
+
+$$
+\begin{align*}
+\dot{x}_{0} &= -x_{0} + r x_{0} - a x_{1} x_{0} \\
+\dot{x}_{1} &= -x_{1} + s x_{1} + a c x_{1} x_{0} \\
+r &= 0.5 \\
+a &= 1 \\
+s &= -0.5+\theta, \theta \in [-0.5,0.5] \\
+c &= 1
+\end{align*}
+$$
+
+### References
+
+[1]: Xue, B., Li, R., Zhan, N., & Fränzle, M. (2021, May). Reach-avoid analysis for stochastic discrete-time systems. In
+2021 American Control Conference (ACC) (pp. 4879-4885). IEEE.
+
+---
+
+### 2-state with polynomial vector field
+
+$$
+\begin{align*}
+\dot{x}_{0} &= -0.42x_{0} - 1.05 x_{1} - 2.3 x_{0}^{2} -0.5 x_{0} x_{1} - x_{0}^{3} \\
+\dot{x}_{1} &= 1.98 x_{0} + x_{0} x_{1}
+\end{align*}
+$$
+
+#### References
+
+[1]: Tan, W., & Packard, A. (2008). Stability region analysis using polynomial and composite polynomial Lyapunov
+functions and sum-of-squares programming. IEEE Transactions on Automatic Control, 53(2), 565-571.
