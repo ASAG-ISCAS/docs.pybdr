@@ -73,7 +73,7 @@ Example files are provided to show how to use the tool to calculate reachable se
 provided and modify the dynamics and parameters required for the calculation to see the effect of using different
 settings for calculating system reachable sets.
 
-For example, consider a dynamic system:
+For example, consider the [Van der Pol oscillator](docs/misc/models.md#van-der-pol-oscillator) dynamic system:
 
 $$
 \begin{align*}
