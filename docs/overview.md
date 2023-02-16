@@ -110,6 +110,7 @@ import numpy as np
 from pyrat.algorithm import ASB2008CDC
 from pyrat.dynamic_system import NonLinSys
 from pyrat.geometry import Zonotope, Interval, Geometry
+from pyrat.geometry.operation import boundary
 from pyrat.model import *
 from pyrat.util.visualization import plot
 
@@ -122,9 +123,18 @@ options.t_end = 6.74
 options.step = 0.005
 options.tensor_order = 3
 options.taylor_terms = 4
-options.r0 = [Zonotope([1.4, 2.4], np.diag([0.17, 0.06]))]
 options.u = Zonotope.zero(1, 1)
 options.u_trans = np.zeros(1)
+
+z = Zonotope([1.4, 2.4], np.diag([0.17, 0.06]))
+
+# -----------------------------------------------------
+# computing reachable sets with boundary analysis
+options.r0 = boundary(z, 1, Geometry.TYPE.ZONOTOPE)
+# -----------------------------------------------------
+# computing reachable sets without boundary analysis
+# options.r0 = [z]
+# -----------------------------------------------------
 
 # settings for the using geometry
 Zonotope.REDUCE_METHOD = Zonotope.REDUCE_METHOD.GIRARD
@@ -140,7 +150,10 @@ plot(tp, [0, 1])
 We use this setting to check the evolution of this system in the time interval [0,6.74] using a time step of
 0.005, and finally the results can be visualized below.
 
-![](imgs/overview_demo.png)
+
+|    With Boundary Analysis     |    Without Boundary Analysis     |
+|:-----------------------------:|:--------------------------------:|
+| ![](imgs/vanderpol_bound.png) | ![](imgs/vanderpol_no_bound.png) |
 
 ### Computing Reachable Sets Based on Boundary Analysis for Neural ODE
 
