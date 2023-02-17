@@ -44,7 +44,8 @@ $$
 
 #### References
 
-\[1\]:
+\[1\]: Chen, X. (2015). Reachability analysis of non-linear hybrid systems using taylor models (Doctoral dissertation,
+Fachgruppe Informatik, RWTH Aachen University).
 
 ---
 
@@ -168,23 +169,38 @@ $$
 
 --- 
 
-### Lotka-Volterra
+### Lotka-Volterra model of 2 variables
 
 $$
 \begin{align*}
-\dot{x}_{0} &= -x_{0} + r x_{0} - a x_{1} x_{0} \\
-\dot{x}_{1} &= -x_{1} + s x_{1} + a c x_{1} x_{0} \\
-r &= 0.5 \\
-a &= 1 \\
-s &= -0.5+\theta, \theta \in [-0.5,0.5] \\
-c &= 1
+\dot{x}_{0} &= 1.5 x_{0} - x_{0} x_{1} \\
+\dot{x}_{1} &= -3 x_{1} + x_{0} x_{1} \\
 \end{align*}
 $$
 
 #### References
 
-[1]: Xue, B., Li, R., Zhan, N., & Fränzle, M. (2021, May). Reach-avoid analysis for stochastic discrete-time systems. In
-2021 American Control Conference (ACC) (pp. 4879-4885). IEEE.
+[1]: Chen, X. (2015). Reachability analysis of non-linear hybrid systems using taylor models (Doctoral dissertation,
+Fachgruppe Informatik, RWTH Aachen University).
+
+---
+
+### Lotka-Volterra model of 5 variables
+
+$$
+\begin{align*}
+\dot{x}_{0} &= x_{0} (1-(x_{0}+0.85 x_{1} + 0.5 x_{4})) \\
+\dot{x}_{1} &= x_{1} (1-(x_{1}+0.85 x_{2} + 0.5 x_{1})) \\
+\dot{x}_{2} &= x_{2} (1-(x_{2}+0.85 x_{3} + 0.5 x_{2})) \\
+\dot{x}_{3} &= x_{3} (1-(x_{3}+0.85 x_{4} + 0.5 x_{3})) \\
+\dot{x}_{4} &= x_{4} (1-(x_{4}+0.85 x_{0} + 0.5 x_{4})) \\
+\end{align*}
+$$
+
+#### References
+
+\[1\]: Chen, X. (2015). Reachability analysis of non-linear hybrid systems using taylor models (Doctoral dissertation,
+Fachgruppe Informatik, RWTH Aachen University).
 
 ---
 
@@ -221,3 +237,99 @@ Aided Verification: 28th International Conference, CAV 2016, Toronto, ON, Canada
 
 ---
 
+### Biological model of 7 variables
+
+$$
+\begin{align*}
+\dot{x}_{0} &= -0.4 x_{0} + 5 x_{2} x_{3} \\
+\dot{x}_{1} &= 0.4 x_{0} - x_{1} \\
+\dot{x}_{2} &= x_{1} - 5 x_{2} x_{3} \\
+\dot{x}_{3} &= 5 x_{4} x_{5} - 5 x_{2} x_{3} \\
+\dot{x}_{4} &= -5 x_{4} x_{5} + 5 x_{2} x_{3} \\
+\dot{x}_{5} &= 0.5 x_{6} - 5 x_{4} x_{5} \\
+\dot{x}_{6} &= -0.5 x_{6} + 5 x_{4} x_{5} \\
+\end{align*}
+$$
+
+#### References
+
+\[1\]: Chen, X. (2015). Reachability analysis of non-linear hybrid systems using taylor models (Doctoral dissertation,
+Fachgruppe Informatik, RWTH Aachen University).
+
+---
+
+### Biolgoical model of 9 variables
+
+$$
+\begin{align*}
+\dot{x}_{0} &= 3 x_{2} - x_{0} x_{5} \\
+\dot{x}_{1} &= x_{3} - x_{1} x_{5} \\
+\dot{x}_{2} &= x_{0} x_{5} - 3 x_{2} \\
+\dot{x}_{3} &= x_{1} x_{5} - x_{3} \\
+\dot{x}_{4} &= 3 x_{2} + 5 x_{0} - x_{4} \\
+\dot{x}_{5} &= 5 x_{4} + 3 x_{2} + x_{3} - x_{5} (x_{0}+x_{1}+2x_{7}+1) \\
+\dot{x}_{6} &= 5 x_{3} + x_{1} - 0.5 x_{6} \\
+\dot{x}_{7} &= 5 x_{6} - 2 x_{5} x_{7} + x_{8} - 0.2 x_{7} \\
+\dot{x}_{8} &= 2 x_{5} x_{7} - x_{8} \\
+\end{align*}
+$$
+
+#### References
+
+\[1\]: Chen, X. (2015). Reachability analysis of non-linear hybrid systems using taylor models (Doctoral dissertation,
+Fachgruppe Informatik, RWTH Aachen University).
+
+---
+
+### Jet engine
+
+$$
+\begin{align*}
+\dot{x}_{0} &= -x_{1} - 1.5 x_{0}^2 -0.5 x_{0}^3 -0.5 \\
+\dot{x}_{1} &= 3 x_{0} - x_{1}
+\end{align*}
+$$
+
+#### References
+
+\[1\]: Chen, X. (2015). Reachability analysis of non-linear hybrid systems using taylor models (Doctoral dissertation,
+Fachgruppe Informatik, RWTH Aachen University).
+
+---
+
+### Spring-pendulum
+
+$$
+\begin{align*}
+\dot{x}_{0} &= x_{2} \\
+\dot{x}_{1} &= x_{3} \\
+\dot{x}_{2} &= x_{0} x_{3}^2 + g \cos{\theta} - k (x_{0}-L) \\
+\dot{x}_{3} &= - \frac{2 x_{2} x_{3} + g \sin{\theta}}{x_{0}} \\
+k &= 2 \\
+L &= 1 \\
+g &= 9.8
+\end{align*}
+$$
+
+#### References
+
+\[1\]: Chen, X. (2015). Reachability analysis of non-linear hybrid systems using taylor models (Doctoral dissertation,
+Fachgruppe Informatik, RWTH Aachen University).
+
+---
+
+### Brusselator
+
+$$
+\begin{align*}
+\dot{x}_{0} &= A + x_{0}^2 x_{1} - B x_{0} - x_{0} \\
+\dot{x}_{1} &= B x_{0} - x_{0}^2 x_{1} \\
+A &= 1 \\
+B &= 1.5
+\end{align*}
+$$
+
+#### References
+
+\[1\]: Chen, X. (2015). Reachability analysis of non-linear hybrid systems using taylor models (Doctoral dissertation,
+Fachgruppe Informatik, RWTH Aachen University).

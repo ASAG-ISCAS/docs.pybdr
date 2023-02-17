@@ -6,11 +6,11 @@ sidebar_position: 3
 
 We test our implementation on a PC with following configurations:
 
-| Hardware |                        Detail                        | 
-|:--------:|:----------------------------------------------------:|
-|   CPU    |  Intel(R) Core(TM) i7-11800H CPU @ 2.30GHz (8 CPUs)  |
-|  Memory  |                         16GB                         |
-|   GPU    |                       RTX3060                        |
+| Hardware |                       Detail                       | 
+|:--------:|:--------------------------------------------------:|
+|   CPU    | Intel(R) Core(TM) i7-11800H CPU @ 2.30GHz (8 CPUs) |
+|  Memory  |                        16GB                        |
+|   GPU    |                      RTX3060                       |
 
 ## Settings
 
@@ -26,79 +26,39 @@ from pyrat.geometry import Geometry, Zonotope, Interval
 from pyrat.dynamic_system import NonLinSys
 from pyrat.model import vanderpol, Model
 from pyrat.algorithm import ASB2008CDC
-
-# init dynamic system
-system = NonLinSys(Model(vanderpol, [2, 1]))
-
-# settings for the computation
-options = ASB2008CDC.Options()
-options.t_end = 6.74
-options.step = 0.005
-options.tensor_order = 3
-options.taylor_terms = 4
-options.r0 = [Zonotope([1.4, 2.4], np.diag([0.17, 0.06]))]
-
-options.u = Zonotope.zero(1, 1)
-options.u_trans = np.zeros(1)
-
-# settings for the using geometry
-Zonotope.REDUCE_METHOD = Zonotope.REDUCE_METHOD.GIRARD
-Zonotope.ORDER = 50
-
-# reachable sets computation
-ti, tp0, _, _ = ASB2008CDC.reach(system, options)
-
 from pyrat.geometry.operation import boundary
+from pyrat.util.visualization import plot_cmp
 
-c = np.array([1.4, 2.4], dtype=float)
-inf = c - [0.17, 0.06]
-sup = c + [0.17, 0.06]
-box = Interval(inf, sup)
+if __name__ == '__main__':
+    # init dynamic system
+    system = NonLinSys(Model(vanderpol, [2, 1]))
 
-options.r0 = boundary(box, 1, Geometry.TYPE.ZONOTOPE)
+    # settings for the computation
+    options = ASB2008CDC.Options()
+    options.t_end = 6.74
+    options.step = 0.005
+    options.tensor_order = 3
+    options.taylor_terms = 4
 
-_, tp1, _, _ = ASB2008CDC.reach(system, options)
+    options.u = Zonotope.zero(1, 1)
+    options.u_trans = np.zeros(1)
 
-import matplotlib.pyplot as plt
-from matplotlib.patches import Polygon
+    # settings for the using geometry
+    Zonotope.REDUCE_METHOD = Zonotope.REDUCE_METHOD.GIRARD
+    Zonotope.ORDER = 50
 
-px = 1 / plt.rcParams["figure.dpi"]
-width, height = 800, 800
-dims = [0, 1]
-fig, ax = plt.subplots(figsize=(width * px, height * px), layout="constrained")
+    z = Zonotope([1.4, 2.4], np.diag([0.17, 0.06]))
 
+    # reachable sets computation without boundary analysis
+    options.r0 = [z]
+    ti_whole, tp_whole, _, _ = ASB2008CDC.reach(system, options)
 
-def __add_zonotope(zono: "Zonotope", color, is_filled, alpha):
-    g = zono.proj(dims)
-    p = Polygon(
-        g.polygon(),
-        closed=True,
-        alpha=alpha,
-        fill=is_filled,
-        linewidth=1,
-        edgecolor=color,
-        facecolor=color,
-        color=color,
-    )
-    ax.add_patch(p)
+    # reachable sets computation with boundary analysis
+    options.r0 = boundary(z, 1, Geometry.TYPE.ZONOTOPE)
+    ti_bound, tp_bound, _, _ = ASB2008CDC.reach(system, options)
 
-
-assert len(tp0) == len(tp1)
-
-# show tp0 & tp1
-for idx in range(len(tp0)):
-    c = plt.cm.turbo(idx / len(tp0))
-    for r in tp1[idx]:
-        __add_zonotope(r, "blue", True, 1)
-    for r in tp0[idx]:
-        __add_zonotope(r, c, False, 0.7)
-
-ax.autoscale_view()
-ax.axis("equal")
-ax.set_xlabel("x" + str(dims[0]))
-ax.set_ylabel("x" + str(dims[1]))
-
-plt.show()
+    # visualize the results
+    plot_cmp([tp_whole, tp_bound], [0, 1], cs=['#FF5722', '#303F9F'])
 ```
 
 ![](imgs/over.png)
