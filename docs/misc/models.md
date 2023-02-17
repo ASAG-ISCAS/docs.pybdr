@@ -195,3 +195,11 @@ $$
 \dot{x}_{1} &= 0.2 - 0.7 \sin{x_{0}} -0.05x_{1}
 \end{align*}
 $$
+
+#### References
+
+[1]: Xue, B., She, Z., & Easwaran, A. (2016). Under-approximating backward reachable sets by polytopes. In Computer
+Aided Verification: 28th International Conference, CAV 2016, Toronto, ON, Canada, July 17-23, 2016, Proceedings, Part I
+28 (pp. 457-476). Springer International Publishing.
+
+---
