@@ -193,7 +193,7 @@ module `model`.
 
 ### visualization
 
-In order to facilitate the analysis and presentation of the results of the calculated reachable sets, we provide
+In order to facilitate reachability analysis or presentation of computed reachable sets, we provide
 basic visualisation API for the visualisation of the calculated results, which already be implemented in the
 `visualisation` module.
 

@@ -297,6 +297,22 @@ Fachgruppe Informatik, RWTH Aachen University).
 
 ---
 
+### Jet engine with time-varying disturbances
+
+$$
+\begin{align*}
+\dot{x}_{0} &= -x_{1} - 1.5 x_{0}^2 -0.5 x{0}^3 -0.5 + u_{0} \\
+\dot{x}_{1} &= 3 x_{0} - x_{1} + u_{1}
+\end{align*}
+$$
+
+#### References
+
+\[1\]: Chen, X. (2015). Reachability analysis of non-linear hybrid systems using taylor models (Doctoral dissertation,
+Fachgruppe Informatik, RWTH Aachen University).
+
+---
+
 ### Spring-pendulum
 
 $$
@@ -326,6 +342,101 @@ $$
 \dot{x}_{1} &= B x_{0} - x_{0}^2 x_{1} \\
 A &= 1 \\
 B &= 1.5
+\end{align*}
+$$
+
+#### References
+
+\[1\]: Chen, X. (2015). Reachability analysis of non-linear hybrid systems using taylor models (Doctoral dissertation,
+Fachgruppe Informatik, RWTH Aachen University).
+
+---
+
+### Lorentz system
+
+$$
+\begin{align*}
+\dot{x}_{0} &= \sigma (x_{1} - x_{0}) \\
+\dot{x}_{1} &= x_{0} (\rho - x_{2}) - x_{1} \\
+\dot{x}_{2} &= x_{0} x_{1} - \beta x_{2} \\
+\sigma &= 10 \\
+\rho &= \frac{8}{3} \\
+\beta &= 28
+\end{align*}
+$$
+
+#### References
+
+\[1\]: Chen, X. (2015). Reachability analysis of non-linear hybrid systems using taylor models (Doctoral dissertation,
+Fachgruppe Informatik, RWTH Aachen University).
+
+---
+
+### Rossler attractor
+
+$$
+\begin{align*}
+\dot{x}_{0} &= -x_{1} - x_{2} \\
+\dot{x}_{1} &= x_{0} + a x_{1} \\
+\dot{x}_{2} &= b + x_{2} (x_{0} - c) \\
+a &= 0.2 \\
+b &= 0.2 \\
+c &= 5.7
+\end{align*}
+$$
+
+#### References
+
+\[1\]: Chen, X. (2015). Reachability analysis of non-linear hybrid systems using taylor models (Doctoral dissertation,
+Fachgruppe Informatik, RWTH Aachen University).
+
+---
+
+### PI controller with disturbance
+
+$$
+\begin{align*}
+\dot{x}_{0} &= -0.101 (x_{0}-20) + 1.32.3 (x_{1} - 0.1616) - 0.01 x_{0}^2 \\
+\dot{x}_{1} &= -(-0.101 (x_{0}-20) + 1.32.3 (x_{1} - 0.1616) - 0.01 x_{0}^2) + 3 (20-x_{0}) + u
+\end{align*}
+$$
+
+#### References
+
+\[1\]: Chen, X. (2015). Reachability analysis of non-linear hybrid systems using taylor models (Doctoral dissertation,
+Fachgruppe Informatik, RWTH Aachen University).
+
+---
+
+### lac operon model
+
+$$
+\begin{align*}
+\dot{x}_{0} &= -2 k_{3} x_{0}^2 \frac{k_8 R x_{1}^2 + \tau}{k_3 x_{0}^2 + \mu} + 2 k_{-3} F +
+\frac{(k_5 I - (k_9 + k_{-5}) x_{0}) k_{-2} \mathcal{X} k_4 \mu (k_3 x_{0}^2 + \mu)}
+{k_7(k_2(k_8 R x_{1}^2 + \tau) + k_{-2} (k_3 x_{0}^2 + \mu))} \\
+\dot{x}_{1} &= -2 k_8 R x_{1}^2 +
+\frac{2 k_{-8} (k_8 R x_{1}^2 + \tau)}{k_3 x_{0}^2} +
+\frac{k_9 x_{0} k_{-2} \mathcal{X} k_{4} \eta (k_3 x_{0}^2 + \mu)}{k_7(k_2(k_8 R x_{1}^2 + \tau) + k_{-2} (k_3 x_{0}^2 +
+\mu))} \\
+k_2 &= 4 \times {10}^5 \ \ \ \
+k_{-2} = 0.03 \ \ \ \
+k_{3} = 0.2 \\
+k_{-3} &= 60 \ \ \ \
+k_{4} = 1 \ \ \ \
+k_{5} = 0.6 \\
+k_{-5} &= 0.006 \ \ \ \
+k_{6} = 3 \times {10}^{-6} \ \ \ \
+k_{7} = 3 \times {10}^{-6} \\
+k_{8} &= 0.03 \ \ \ \
+k_{-8} = 1 \times {10}^{-5} \ \ \ \
+k_{9} = 5000 \\
+R &= 0.01 \ \ \ \
+\mathcal{X} = 0.002002 \ \ \ \
+\mu = 0.005 \\
+F &= 0.0001 \ \ \ \
+I = 91100 \ \ \ \
+\tau = 0.008
 \end{align*}
 $$
 
