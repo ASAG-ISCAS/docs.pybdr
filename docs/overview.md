@@ -148,12 +148,17 @@ plot(tp, [0, 1])
 ```
 
 We use this setting to check the evolution of this system in the time interval [0,6.74] using a time step of
-0.005, and finally the results can be visualized below.
-
+0.005, and finally the results can be visualized as following.
 
 |    With Boundary Analysis     |    Without Boundary Analysis     |
 |:-----------------------------:|:--------------------------------:|
 | ![](imgs/vanderpol_bound.png) | ![](imgs/vanderpol_no_bound.png) |
+
+And more comparison :smirk_cat:
+
+|                          Dynamic System                           | Reachable Sets (Orange--without boundary analysis,Blue--with boundary analysis ) |
+|:-----------------------------------------------------------------:|:--------------------------------------------------------------------------------:|
+| [synchronous machine](docs/misc/models.md#van-der-pol-oscillator) |                          ![](imgs/sync_machine_cmp.png)                          |
 
 ### Computing Reachable Sets Based on Boundary Analysis for Neural ODE
 

@@ -184,3 +184,14 @@ $$
 
 [1]: Tan, W., & Packard, A. (2008). Stability region analysis using polynomial and composite polynomial Lyapunov
 functions and sum-of-squares programming. IEEE Transactions on Automatic Control, 53(2), 565-571.
+
+---
+
+### Synchronous Machine
+
+$$
+\begin{align*}
+\dot{x}_{0} &= x_1 \\
+\dot{x}_{1} &= 0.2 - 0.7 \sin{x_{0}} -0.05x_{1}
+\end{align*}
+$$
