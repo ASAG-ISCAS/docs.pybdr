@@ -156,9 +156,9 @@ We use this setting to check the evolution of this system in the time interval [
 
 And more comparison :smirk_cat:
 
-|                         Dynamic System                         | Reachable Sets (Orange--without boundary analysis,Blue--with boundary analysis ) |
-|:--------------------------------------------------------------:|:--------------------------------------------------------------------------------:|
-| [synchronous machine](docs/misc/models.md#synchronous-machine) |                          ![](imgs/sync_machine_cmp.png)                          |
+|                         Dynamic System                         |                                                            Implementation                                                            | Reachable Sets (Orange--without boundary analysis,Blue--with boundary analysis ) |
+|:--------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------:|
+| [synchronous machine](docs/misc/models.md#synchronous-machine) | [benchmark_synchronous_machine_cmp.py](https://github.com/ASAG-ISCAS/PyBDR/blob/master/example/benchmark_synchronous_machine_cmp.py) |                          ![](imgs/sync_machine_cmp.png)                          |
 
 ### Computing Reachable Sets Based on Boundary Analysis for Neural ODE
 

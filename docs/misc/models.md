@@ -26,8 +26,25 @@ $$
 
 #### References
 
-[1]: Wikipedia contributors. (2022, May 3). Van der Pol oscillator. In Wikipedia, The Free Encyclopedia. Retrieved 09:
+\[1\]: Wikipedia contributors. (2022, May 3). Van der Pol oscillator. In Wikipedia, The Free Encyclopedia. Retrieved 09:
 47, June 8, 2022, from https://en.wikipedia.org/w/index.php?title=Van_der_Pol_oscillator&oldid=1085958541
+
+---
+
+### Coupled Van der Pol oscillator
+
+$$
+\begin{align*}
+\dot{x}_{0} &= x_{1} \\
+\dot{x}_{1} &= (1-x_{0}^{2})x_{1} - x_{0} + (x_{2}-x_{0}) \\
+\dot{x}_{2} &= x_{3} \\
+\dot{x}_{3} &= (1-x_{2}^{2})x_{3} - x_{2} + (x_{0}-x_{2})
+\end{align*}
+$$
+
+#### References
+
+\[1\]:
 
 ---
 
@@ -203,3 +220,4 @@ Aided Verification: 28th International Conference, CAV 2016, Toronto, ON, Canada
 28 (pp. 457-476). Springer International Publishing.
 
 ---
+
