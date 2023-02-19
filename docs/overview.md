@@ -276,8 +276,8 @@ ti, tp, _, _ = ASB2008CDC.reach(system, options)
 plot(tp, [0, 1])
 ```
 
-In the following table, we show the reachable computed with boundary analysis and without boundary analysis on different
-time instance cases.
+In the following table, we show the reachable sets computed with boundary analysis and without boundary analysis on
+different time instance cases.
 
 | Time Instance |  With Boundary Analysis   | Without Boundary Analysis  |
 |:-------------:|:-------------------------:|:--------------------------:|
