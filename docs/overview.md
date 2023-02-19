@@ -236,7 +236,7 @@ import numpy as np
 np.seterr(divide='ignore', invalid='ignore')
 import sys
 
-sys.path.append("./../../")
+# sys.path.append("./../../") uncomment this line if you need to add path manually
 from pyrat.algorithm import ASB2008CDC
 from pyrat.dynamic_system import NonLinSys
 from pyrat.geometry import Zonotope, Interval, Geometry
