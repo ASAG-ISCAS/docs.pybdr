@@ -157,10 +157,10 @@ following:
 
 And more :smirk_cat:
 
-|                         Dynamic System                         |                                                            Implementation                                                            | Reachable Sets (Orange-NBA,Blue-BA) |
-|:--------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------------------------:|:-----------------------------------:|
-| [synchronous machine](docs/misc/models.md#synchronous-machine) | [benchmark_synchronous_machine_cmp.py](https://github.com/ASAG-ISCAS/PyBDR/blob/master/example/benchmark_synchronous_machine_cmp.py) |   ![](imgs/sync_machine_cmp.png)    |
-|                                                                |                                                                                                                                      |                                     |
+|                                         Dynamic System                                         |                                                            Implementation                                                            | Reachable Sets (Orange-NBA,Blue-BA) |
+|:----------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------------------------:|:-----------------------------------:|
+|                 [synchronous machine](docs/misc/models.md#synchronous-machine)                 | [benchmark_synchronous_machine_cmp.py](https://github.com/ASAG-ISCAS/PyBDR/blob/master/example/benchmark_synchronous_machine_cmp.py) |   ![](imgs/sync_machine_cmp.png)    |
+| [Lotka Volterra model of 2 variables](docs/misc/models.md#lotka-volterra-model-of-2-variables) |                                                                                                                                      | ![](imgs/lotka_volterra_2d_cmp.png) |
 
 ### Computing Reachable Sets Based on Boundary Analysis for Neural ODE
 
