@@ -12,20 +12,19 @@ unverifiable in practice. This pessimism mainly arises due to the wrapping effec
 accumulation of over-approximation error through the iterative computation in the construction of reachable sets. As the
 extent of the wrapping effect correlates strongly with the volume of the initial set, techniques that partition the
 initial state space and independently compute reachable sets of those partitions are often used to reduce the wrapping
-effect, especially for large initial sets or/and large time horizons. Such partitioning may, however, induce extensive
-demand on computation time and memory, often rendering the existing reachability analysis techniques not suitable for
-complex real-world applications. Not being forced to explore the full, i.g. exponential in the dimensionality, number of
-partitions could help such procedures tremendously. This is the theme of this tool, which implements the
-so-called <a href="http://lcs.ios.ac.cn/~xuebai/publication.html"><strong>'set-boundary based method'</strong></a> that
-explores means of computing
-the full reachable state space based on state-exploratory analysis of just a small sub-volume of the initial state set,
-namely a set enclosing its boundary. For theoretical analysis, please refer to
-<a href="https://ieeexplore.ieee.org/document/7585104"><strong>'Bai Xue, Arvind Easwaran, Nam-Joon Cho and Martin
+effect, ${\color{red} \textrm{especially for large initial sets or/and large time horizons}}$. Such partitioning
+may, however, induce extensive demand on computation time and memory, often rendering the existing reachability analysis
+techniques not suitable for complex real-world applications. Not being forced to explore the full, i.g. exponential in
+the dimensionality, number of partitions could help such procedures tremendously. This is the theme of this tool, which
+implements the so-called [__'set-boundary based method'__]("http://lcs.ios.ac.cn/~xuebai/publication.html) that
+explores means of computing the full reachable state space based on state-exploratory analysis of just a small
+sub-volume of the initial state set, namely a set enclosing its boundary. For theoretical analysis, please refer to
+[__Bai Xue, Arvind Easwaran, Nam-Joon Cho and Martin
 Fränzle.Reach-Avoid Verification for Nonlinear Systems Based on Boundary Analysis. IEEE Transactions on Automatic
-Control (IEEE TAC), vol. 62: 3518--3523, 2017.'</strong></a> and
-<a href="https://ieeexplore.ieee.org/document/7585104"><strong>'Bai Xue, Qiuye Wang, Shenghua Feng, and Naijun Zhan.
+Control (IEEE TAC), vol. 62: 3518--3523, 2017.__](https://ieeexplore.ieee.org/document/7585104"><strong)
+and [__Bai Xue, Qiuye Wang, Shenghua Feng, and Naijun Zhan.
 Over-and underapproximating reach sets for perturbed delay differential equations. IEEE Transactions on Automatic
-Control (IEEE TAC), vol.66: 283--290,2020.'</strong></a>
+Control (IEEE TAC), vol.66: 283--290,2020.__](https://ieeexplore.ieee.org/document/9023360)
 
 The set-boundary based method can be used to perform reachability analysis for systems modelled by
 
@@ -177,11 +176,16 @@ For large initial sets,
 |                          [Jet engine](docs/misc/models.md#jet-engine)                          |          [benchmark_jet_engine_cmp.py](https://github.com/ASAG-ISCAS/PyBDR/blob/master/example/benchmark_jet_engine_cmp.py)          |    ![](imgs/jet_engine_cmp.png)     |
 
 For large time horizons, i.e. consider
-system [Brusselator](https://github.com/ASAG-ISCAS/PyBDR/blob/master/pyrat/model/brusselator.py)
+the system [Brusselator](https://github.com/ASAG-ISCAS/PyBDR/blob/master/pyrat/model/brusselator.py)
+> For more details about the following example, please refer to
+> our [code](https://github.com/ASAG-ISCAS/PyBDR/blob/master/example/benchmark_brusselator_cmp.py).
 
-| Time instance | Reachable Sets (Orange-NBA,Blue-BA) |
-|:-------------:|:-----------------------------------:|
-|               |    ![](imgs/brusselator_cmp.png)    |
+| Time instance | With Boundary Analysis            |      Without Boundary Analysi       |
+|:-------------:|-----------------------------------|:-----------------------------------:|
+|     t=5.4     | ![](imgs/brusselator_ba_t5.4.png) | ![](imgs/brusselator_nba_t5.4.png)' |
+|     t=5.7     | ![](imgs/brusselator_ba_t5.7.png) | ![](imgs/brusselator_nba_t5.7.png)  |
+|     t=6.0     | ![](imgs/brusselator_ba_t6.png)   |  ![](imgs/brusselator_nba_t6.png)   |
+|     t=6.1     | ![](imgs/brusselator_ba_t6.1.png) |     __Set Explosion Occurred!__     |
 
 ### Computing Reachable Sets Based on Boundary Analysis for Neural ODE
 
