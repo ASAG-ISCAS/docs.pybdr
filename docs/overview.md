@@ -168,122 +168,24 @@ following:
 |:-----------------------------:|:--------------------------------:|
 | ![](imgs/vanderpol_bound.png) | ![](imgs/vanderpol_no_bound.png) |
 
-And more :smirk_cat:
+For large initial sets,
 
-|                                         Dynamic System                                         |                                                            Implementation                                                            | Reachable Sets (Orange-NBA,Blue-BA) |
+|                                             System                                             |                                                                 Code                                                                 | Reachable Sets (Orange-NBA,Blue-BA) |
 |:----------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------------------------:|:-----------------------------------:|
 |                 [synchronous machine](docs/misc/models.md#synchronous-machine)                 | [benchmark_synchronous_machine_cmp.py](https://github.com/ASAG-ISCAS/PyBDR/blob/master/example/benchmark_synchronous_machine_cmp.py) |   ![](imgs/sync_machine_cmp.png)    |
 | [Lotka Volterra model of 2 variables](docs/misc/models.md#lotka-volterra-model-of-2-variables) |   [benchmark_lotka_volterra_2d_cmp.py](https://github.com/ASAG-ISCAS/PyBDR/blob/master/example/benchmark_lotka_volterra_2d_cmp.py)   | ![](imgs/lotka_volterra_2d_cmp.png) |
 |                          [Jet engine](docs/misc/models.md#jet-engine)                          |          [benchmark_jet_engine_cmp.py](https://github.com/ASAG-ISCAS/PyBDR/blob/master/example/benchmark_jet_engine_cmp.py)          |    ![](imgs/jet_engine_cmp.png)     |
-|                         [Brusselator](docs/misc/models.md#brusselator)                         |         [benchmark_brusselator_cmp.py](https://github.com/ASAG-ISCAS/PyBDR/blob/master/example/benchmark_brusselator_cmp.py)         |    ![](imgs/brusselator_cmp.png)    |
+
+For large time horizons, i.e. consider
+system [Brusselator](https://github.com/ASAG-ISCAS/PyBDR/blob/master/pyrat/model/brusselator.py)
+
+| Time instance | Reachable Sets (Orange-NBA,Blue-BA) |
+|:-------------:|:-----------------------------------:|
+|               |    ![](imgs/brusselator_cmp.png)    |
 
 ### Computing Reachable Sets Based on Boundary Analysis for Neural ODE
 
-For example, consider a neural ODE with following parameters and $\textit{sigmoid}$ activation function, also evaluated
-in <a href="https://link.springer.com/content/pdf/10.1007/978-3-031-15839-1_15.pdf"><strong>'Manzanas Lopez, D., Musau,
-P., Hamilton, N. P., & Johnson, T. T. Reachability analysis of a general class of neural ordinary differential
-equations. In Formal Modeling and Analysis of Timed Systems: 20th International Conference, FORMATS 2022, Warsaw,
-Poland, September 13–15, 2022, Proceedings (pp. 258-277).'</strong></a>:
-
-$$
-w_1 = \left[
-\begin{align*}
-0.2911133 \quad & 0.12008807\\
--0.24582624 \quad & 0.23181419\\
--0.25797904 \quad & 0.21687193\\
--0.19282854 \quad & -0.2602416 \\
-0.26780415 \quad & -0.20697702\\
-0.23462369\quad & 0.2294843 \\
--0.2583547\quad & 0.21444395\\
--0.04514714 \quad & 0.29514763\\
--0.15318371 \quad & -0.275755 \\
-0.24873598 \quad & 0.21018365
-\end{align*}
-\right]        
-$$
-
-$$
-w_2 = \left[
-\begin{align*}
--0.58693904 \quad & -0.814841 & -0.8175157 \quad & 0.97060364 & 0.6908913\\
--0.92446184 \quad & -0.79249185 & -1.1507587 \quad & 1.2072723 & -0.7983982\\
-1.1564877 \quad & -0.8991244 & -1.0774536 \quad & -0.6731967 & 1.0154784\\
-0.8984464 \quad & -1.0766245 & -0.238209 \quad & -0.5233613 & 0.8886671
-\end{align*}
-\right]
-$$
-
-$$
-b_1 = \left[
-\begin{align*}
-0.0038677\quad & -0.00026365 & -0.007168970\quad & 0.02469357 & 0.01338706\\
-0.00856025\quad & -0.00888401& 0.00516089\quad & -0.00634514 & -0.01914518
-\end{align*}
-\right]
-$$
-
-$$
-b_2 = \left[
-\begin{align*}
--0.04129209 \quad & -0.01508532
-\end{align*}
-\right]
-$$
-
-```python
-import numpy as np
-
-np.seterr(divide='ignore', invalid='ignore')
-import sys
-
-# sys.path.append("./../../") uncomment this line if you need to add path manually
-from pyrat.algorithm import ASB2008CDC
-from pyrat.dynamic_system import NonLinSys
-from pyrat.geometry import Zonotope, Interval, Geometry
-from pyrat.model import *
-from pyrat.util.visualization import plot
-from pyrat.util.functional.neural_ode_generate import neuralODE
-from pyrat.geometry.operation import boundary
-
-# init neural ODE
-system = NonLinSys(Model(neuralODE, [2, 1]))
-
-# settings for the computation
-options = ASB2008CDC.Options()
-options.t_end = 1.5
-options.step = 0.01
-options.tensor_order = 2
-options.taylor_terms = 2
-Z = Zonotope([0.5, 0], np.diag([1, 0.5]))
-
-# Reachable sets computed with boundary analysis
-# options.r0 = boundary(Z,1,Geometry.TYPE.ZONOTOPE)
-
-# Reachable sets computed without boundary analysis
-options.r0 = [Z]
-
-options.u = Zonotope.zero(1, 1)
-options.u_trans = np.zeros(1)
-
-# settings for the using geometry
-Zonotope.REDUCE_METHOD = Zonotope.REDUCE_METHOD.GIRARD
-Zonotope.ORDER = 50
-
-# reachable sets computation
-ti, tp, _, _ = ASB2008CDC.reach(system, options)
-
-# visualize the results
-plot(tp, [0, 1])
-```
-
-In the following table, we show the reachable sets computed with boundary analysis and without boundary analysis on
-different time instance cases.
-
-| Time Instance |  With Boundary Analysis   | Without Boundary Analysis  |
-|:-------------:|:-------------------------:|:--------------------------:|
-|    t=0.5s     | ![](imgs/Neural_BA05.png) |  ![](imgs/Neural_E05.png)  |
-|    t=1.0s     | ![](imgs/Neural_BA1.png)  |  ![](imgs/Neural_E1.png)   |
-|    t=1.5s     | ![](imgs/Neural_BA15.png) | __Set Explosion Occured!__ |
+TODO
 
 ## Misc
 
