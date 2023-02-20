@@ -241,7 +241,60 @@ b_2 = \left[
 \right]
 $$
 
-TODO
+```python
+import numpy as np
+
+np.seterr(divide='ignore', invalid='ignore')
+import sys
+
+# sys.path.append("./../../") uncomment this line if you need to add path manually
+from pyrat.algorithm import ASB2008CDC
+from pyrat.dynamic_system import NonLinSys
+from pyrat.geometry import Zonotope, Interval, Geometry
+from pyrat.model import *
+from pyrat.util.visualization import plot
+from pyrat.util.functional.neural_ode_generate import neuralODE
+from pyrat.geometry.operation import boundary
+
+# init neural ODE
+system = NonLinSys(Model(neuralODE, [2, 1]))
+
+# settings for the computation
+options = ASB2008CDC.Options()
+options.t_end = 1.5
+options.step = 0.01
+options.tensor_order = 2
+options.taylor_terms = 2
+Z = Zonotope([0.5, 0], np.diag([1, 0.5]))
+
+# Reachable sets computed with boundary analysis
+# options.r0 = boundary(Z,1,Geometry.TYPE.ZONOTOPE)
+
+# Reachable sets computed without boundary analysis
+options.r0 = [Z]
+
+options.u = Zonotope.zero(1, 1)
+options.u_trans = np.zeros(1)
+
+# settings for the using geometry
+Zonotope.REDUCE_METHOD = Zonotope.REDUCE_METHOD.GIRARD
+Zonotope.ORDER = 50
+
+# reachable sets computation
+ti, tp, _, _ = ASB2008CDC.reach(system, options)
+
+# visualize the results
+plot(tp, [0, 1])
+```
+
+In the following table, we show the reachable computed with boundary analysis and without boundary analysis on different
+time instance cases.
+
+| Time Instance |  With Boundary Analysis   | Without Boundary Analysis  |
+|:-------------:|:-------------------------:|:--------------------------:|
+|     t=0.5     | ![](imgs/Neural_BA05.png) |  ![](imgs/Neural_E05.png)  |
+|     t=1.0     | ![](imgs/Neural_BA1.png)  |  ![](imgs/Neural_E1.png)   |
+|     t=1.5     | ![](imgs/Neural_BA15.png) | __Set Explosion Occured!__ |
 
 ## Misc
 
@@ -294,6 +347,18 @@ basic visualisation API for the visualisation of the calculated results, which a
 
 - One can further improve the accuracy of the reachable set calculation based on splitting boundaries of initial sets,
   or by reducing the step and increasing the order of the Taylor expansion.
+
+### RuntimeWarning: divide by zero encountered in true_divide
+
+- This warning may be reported on the paltforms with Windows operating system. It does not affect the running of the
+  tool and it can be eliminiated with the decalration:
+
+  ```python
+  numpy.seterr(divide='ignore', invalid='ignore')
+  ```
+
+> Feel free to contact [dingjianqiang0x@gmail.com](mailto:dingjianqiang0x@gmail.com) if you find any
+> issues or bugs in this code, or you struggle to run it in any way.
 
 ## Acknowledgement
 
