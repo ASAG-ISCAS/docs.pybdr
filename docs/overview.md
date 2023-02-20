@@ -189,6 +189,58 @@ the system [Brusselator](https://github.com/ASAG-ISCAS/PyBDR/blob/master/pyrat/m
 
 ### Computing Reachable Sets Based on Boundary Analysis for Neural ODE
 
+For example, consider a neural ODE with following parameters and `sigmoid` $\textit{sigmoid}$ activation function, also
+evaluated in [__Manzanas Lopez,
+D., Musau, P., Hamilton, N. P., & Johnson, T. T. Reachability analysis of a general class of neural ordinary
+differential equations. In Formal Modeling and Analysis of Timed Systems: 20th International Conference, FORMATS 2022,
+Warsaw, Poland, September 13–15, 2022, Proceedings (pp. 258-277).
+__](https://link.springer.com/content/pdf/10.1007/978-3-031-15839-1_15.pdf):
+
+$$
+w_1 = \left[
+\begin{align*}
+0.2911133 \quad & 0.12008807\\
+-0.24582624 \quad & 0.23181419\\
+-0.25797904 \quad & 0.21687193\\
+-0.19282854 \quad & -0.2602416 \\
+0.26780415 \quad & -0.20697702\\
+0.23462369\quad & 0.2294843 \\
+-0.2583547\quad & 0.21444395\\
+-0.04514714 \quad & 0.29514763\\
+-0.15318371 \quad & -0.275755 \\
+0.24873598 \quad & 0.21018365
+\end{align*}
+\right]        
+$$
+
+$$
+w_2 = \left[
+\begin{align*}
+-0.58693904 \quad & -0.814841 & -0.8175157 \quad & 0.97060364 & 0.6908913\\
+-0.92446184 \quad & -0.79249185 & -1.1507587 \quad & 1.2072723 & -0.7983982\\
+1.1564877 \quad & -0.8991244 & -1.0774536 \quad & -0.6731967 & 1.0154784\\
+0.8984464 \quad & -1.0766245 & -0.238209 \quad & -0.5233613 & 0.8886671
+\end{align*}
+\right]
+$$
+
+$$
+b_1 = \left[
+\begin{align*}
+0.0038677\quad & -0.00026365 & -0.007168970\quad & 0.02469357 & 0.01338706\\
+0.00856025\quad & -0.00888401& 0.00516089\quad & -0.00634514 & -0.01914518
+\end{align*}
+\right]
+$$
+
+$$
+b_2 = \left[
+\begin{align*}
+-0.04129209 \quad & -0.01508532
+\end{align*}
+\right]
+$$
+
 TODO
 
 ## Misc
