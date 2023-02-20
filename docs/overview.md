@@ -19,12 +19,12 @@ the dimensionality, number of partitions could help such procedures tremendously
 implements the so-called [__'set-boundary based method'__]("http://lcs.ios.ac.cn/~xuebai/publication.html) that
 explores means of computing the full reachable state space based on state-exploratory analysis of just a small
 sub-volume of the initial state set, namely a set enclosing its boundary. For theoretical analysis, please refer to
-[__Bai Xue, Arvind Easwaran, Nam-Joon Cho and Martin
-Fränzle.Reach-Avoid Verification for Nonlinear Systems Based on Boundary Analysis. IEEE Transactions on Automatic
-Control (IEEE TAC), vol. 62: 3518--3523, 2017.__](https://ieeexplore.ieee.org/document/7585104"><strong)
-and [__Bai Xue, Qiuye Wang, Shenghua Feng, and Naijun Zhan.
-Over-and underapproximating reach sets for perturbed delay differential equations. IEEE Transactions on Automatic
-Control (IEEE TAC), vol.66: 283--290,2020.__](https://ieeexplore.ieee.org/document/9023360)
+[__Bai Xue, Arvind Easwaran, Nam-Joon Cho and Martin Fränzle.Reach-Avoid Verification for Nonlinear Systems Based on
+Boundary Analysis. IEEE Transactions on Automatic Control (IEEE TAC), vol. 62: 3518--3523, 2017.
+__](https://ieeexplore.ieee.org/document/7585104"><strong)
+and [__Bai Xue, Qiuye Wang, Shenghua Feng, and Naijun Zhan. Over-and underapproximating reach sets for perturbed delay
+differential equations. IEEE Transactions on Automatic Control (IEEE TAC), vol.66: 283--290,2020.
+__](https://ieeexplore.ieee.org/document/9023360)
 
 The set-boundary based method can be used to perform reachability analysis for systems modelled by
 
