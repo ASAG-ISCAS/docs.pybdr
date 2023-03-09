@@ -34,34 +34,38 @@ The set-boundary based method can be used to perform reachability analysis for s
 
 ## Installation
 
-No need to do installation, just copy the source code into appropriate directory, like using some
-Matlab third-party library. We highly recommend you to use `Pycharm` as an IDE for development and
-testing.
+The installation process is unnecessary as the source code needs to be copied into the appropriate directory, similar to
+how a third-party library in MATLAB works. We strongly recommend developers to utilize `Pycharm` as the IDE for
+development and testing purposes. By using `Pycharm`, developers can benefit from various advanced features that
+facilitate testing, debugging, and code analysis.
 
 ### Virtual Environment
 
-We recommend that users use [miniconda](https://docs.conda.io/en/latest/miniconda.html)
-to initialise a virtual environment for the subsequent installation and running of third party libraries. The steps are
-as follows.
+To ensure a smoother installation and running of third-party libraries, we advise users to
+use [miniconda](https://docs.conda.io/en/latest/miniconda.html) and create a virtual environment. The steps for this
+process are as follows:
 
-In the user's current working directory, the user can initialise a virtual test environment called `pybdr_lab` using the
-following command.
+First, open the user's current working directory, and use the command
 
 ```shell
 conda create -n pybdr_lab
 ```
 
-After the virtual environment has been initialized, the user activates the virtual test environment named pybdr_lab that
-has just been initialized with the following command.
+to initialize a virtual test environment called "pybdr_lab".
+
+After the virtual environment has been created, the user needs to activate it before running any third-party libraries.
+This can be done using the command
 
 ```shell
 conda activate pybdr_lab
 ```
 
+By activating the virtual environment, the user ensures that any package installations and other commands will run
+within the virtual environment, rather than the system environment.
+
 ### Dependencies
 
-Now, the user can install the necessary third party libraries in this virtual environment using the following
-series of commands.
+Now, the user can install the necessary third party libraries in this virtual environment using the following commands.
 
 ```shell
 conda install matplotlib
@@ -81,9 +85,10 @@ licence, the steps for which can be found at [this link](https://docs.mosek.com/
 
 ### Computing Reachable Sets based on Boundary Analysis for Nonlinear Systems
 
-Example files are provided to show how to use the tool to calculate reachable sets. Users can refer to the example files
-provided and modify the dynamics and parameters required for the calculation to see the effect of using different
-settings for calculating system reachable sets.
+The tool comes with sample files that demonstrate how it should be utilized to compute reachable sets. By referring to
+these sample files, users can gain an understanding of how to modify the dynamics and parameters required for
+reachability analysis. This feature helps users experiment with their analysis by using different settings to assess
+their effects on the overall computation of the reachable sets.
 
 For example, consider the [Van der Pol oscillator](docs/misc/models.md#van-der-pol-oscillator) dynamic system:
 
@@ -302,65 +307,65 @@ This tool provides necessary support to assist in the implementation of potentia
 
 ### interval tensor
 
-In order to improve the efficiency of the calculation, this tool inherits the syntax of the third-party library `numpy`
-for the characteristics of intervals, and constructs the interval tensor to support interval arithmetic. This data
-structure inherits the syntax features of `numpy` and supports the interval tensor calculation based on the broadcast
-mechanism, which realises the parallel calculation of interval data.
+To enhance the calculation efficiency, this tool leverages the syntax of the third-party library `numpy` for interval
+characteristics and constructs an interval tensor to facilitate interval arithmetic. This data structure inherits
+`numpy`'s syntax features and enables interval tensor computation with the broadcast mechanism, enabling parallel
+calculation of interval data.`
 
 ### interval compatible symbolic operations
 
-The symbolic calculation relies heavily on the third-party library `sympy`. Since the calculation of the reachable
-set of a non-linear system based on set propagation requires a Taylor expansion approximation of the non-linear system
-at a specified state point, this tool provides derivative operations of arbitrary order for the system based on `sympy`,
-and in combination with the aforementioned interval tensor data structure, it supports both real-valued and interval
-operations for the value of the high-dimensional derivative tensor obtained from the symbolic calculation, simplifying
-the implementation of subsequent algorithms for the reachable set calculation.
+Symbolic calculation extensively utilizes the third-party library `sympy`. To compute the reachable set of a non-linear
+system via set propagation, a Taylor expansion approximation of the system at the selected state point is necessary.
+Therefore, this tool offers arbitrary order derivative operations of the system using `sympy`. Additionally, in
+conjunction with the interval tensor data structure mentioned earlier, the tool supports both real-valued and interval
+operations for the high-dimensional derivative tensor computed through symbolic calculation. Combining these
+capabilities simplifies the implementation of subsequent algorithms for reachable set calculation.
 
 ### dynamic models
 
-Common dynamic models used in academic research are provided internally for testing and can be viewed in the
+The tool has internal testing for typical dynamic models used in academic research, which can be found in the
 module `model`.
 
 ### visualization
 
-In order to facilitate reachability analysis or presentation of computed reachable sets, we provide
-basic visualisation API for the visualisation of the calculated results, which already be implemented in the
-`visualisation` module.
+To simplify reachability analysis and enhance the presentation of computed reachable sets, we offer a basic
+visualisation API that has already been implemented in the `visualisation` module.
 
 ## Frequently Asked Questions and Troubleshooting
 
 ### the computation is slow
 
-- The tool supports two modes of computation for reachable sets, one is to compute the reachable set of evolved states
-  based on the entire initial set in a set propagation manner, and the other is to compute the reachable set of evolved
-  states based on the boundary of the initial state set.
+Two modes of computation are supported by the tool for reachable sets. One mode is to compute the reachable set of
+evolved states using the entire initial set in a set propagation manner, while the other mode is to compute the
+reachable set of evolved states based on the boundary of the initial state set.
 
-  There are several reasons for slow computations: large computational time intervals, small step, high Taylor expansion
-  orders, and a large number of state variables.
+The computation may be slow for several reasons such as large computational time intervals, small steps, high Taylor
+expansion orders, or a large number of state variables.
 
-  In order to speed up the computations, experiments can be carried out using a smaller computational time horizon, a
-  smaller order of expansion such as 2, and a larger time step, and then gradually increase the computational time
-  horizon and the order of expansion according to the results of this setting, in order to obtain the desired set of
-  reachable states at a suitable time consumption.
+To accelerate the computations, experiments can be performed with a smaller computational time horizon, a smaller
+order
+of expansion (such as 2), and a larger time step. Then gradually increase the computational time horizon and order of
+expansion based on the results of this setting to achieve the desired set of reachable states at an acceptable time
+consumption.
 
 ### controlling the wrapping effect
 
-- One can further improve the accuracy of the reachable set calculation based on splitting boundaries of initial sets,
-  or by reducing the step and increasing the order of the Taylor expansion.
+To enhance the precision of the reachable set computation, one can split the boundaries of initial sets or increase the
+order of the Taylor expansion while reducing the step size.
 
 ### RuntimeWarning: divide by zero encountered in true_divide
 
-- This warning may be reported on the paltforms with Windows operating system. It does not affect the running of the
-  tool and it can be eliminiated with the decalration:
+This warning may appear on platforms using the Windows operating system. However, it won't impact the operation of the
+tool and can be eliminated by declaring it.
 
-  ```python
-  numpy.seterr(divide='ignore', invalid='ignore')
-  ```
+```python
+numpy.seterr(divide='ignore', invalid='ignore')
+```
 
 > Feel free to contact [dingjianqiang0x@gmail.com](mailto:dingjianqiang0x@gmail.com) if you find any
 > issues or bugs in this code, or you struggle to run it in any way.
 
 ## Acknowledgement
 
-This tool has been developed with reference to models used in tools such as Flow*, CORA and other
-reachable set calculation tools.
+When creating this tool, reference was made to models utilized in other reachable set calculation tools such as Flow*,
+CORA, and others.
