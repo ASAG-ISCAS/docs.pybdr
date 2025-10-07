@@ -16,15 +16,15 @@ effect, ${\color{red} \textrm{especially for large initial sets or/and large tim
 may, however, induce extensive demand on computation time and memory, often rendering the existing reachability analysis
 techniques not suitable for complex real-world applications. Not being forced to explore the full, i.g. exponential in
 the dimensionality, number of partitions could help such procedures tremendously. This is the theme of this tool, which
-implements the so-called [__'set-boundary based method'__](http://lcs.ios.ac.cn/~xuebai/publication.html) that
+implements the so-called [**'set-boundary based method'**](http://lcs.ios.ac.cn/~xuebai/publication.html) that
 explores means of computing the full reachable state space based on state-exploratory analysis of just a small
 sub-volume of the initial state set, namely a set enclosing its boundary. For theoretical analysis, please refer to
-[__Bai Xue, Arvind Easwaran, Nam-Joon Cho and Martin Fränzle.Reach-Avoid Verification for Nonlinear Systems Based on
+[**Bai Xue, Arvind Easwaran, Nam-Joon Cho and Martin Fränzle.Reach-Avoid Verification for Nonlinear Systems Based on
 Boundary Analysis. IEEE Transactions on Automatic Control (IEEE TAC), vol. 62: 3518--3523, 2017.
-__](https://ieeexplore.ieee.org/document/7585104"><strong)
-and [__Bai Xue, Qiuye Wang, Shenghua Feng, and Naijun Zhan. Over-and underapproximating reach sets for perturbed delay
+**](https://ieeexplore.ieee.org/document/7585104"><strong)
+and [**Bai Xue, Qiuye Wang, Shenghua Feng, and Naijun Zhan. Over-and underapproximating reach sets for perturbed delay
 differential equations. IEEE Transactions on Automatic Control (IEEE TAC), vol.66: 283--290,2020.
-__](https://ieeexplore.ieee.org/document/9023360)
+**](https://ieeexplore.ieee.org/document/9023360)
 
 The set-boundary based method can be used to perform reachability analysis for systems modelled by
 
@@ -169,37 +169,38 @@ We use this setting to check the evolution of this system in the time interval [
 following:
 
 |  With Boundary Analysis (BA)  |    No Boundary Analysis (NBA)    |
-|:-----------------------------:|:--------------------------------:|
+| :---------------------------: | :------------------------------: |
 | ![](imgs/vanderpol_bound.png) | ![](imgs/vanderpol_no_bound.png) |
 
 For large initial sets,
 
 |                                             System                                             |                                                                 Code                                                                 | Reachable Sets (Orange-NBA,Blue-BA) |
-|:----------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------------------------:|:-----------------------------------:|
+| :--------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------: |
 |                 [synchronous machine](docs/misc/models.md#synchronous-machine)                 | [benchmark_synchronous_machine_cmp.py](https://github.com/ASAG-ISCAS/PyBDR/blob/master/example/benchmark_synchronous_machine_cmp.py) |   ![](imgs/sync_machine_cmp.png)    |
 | [Lotka Volterra model of 2 variables](docs/misc/models.md#lotka-volterra-model-of-2-variables) |   [benchmark_lotka_volterra_2d_cmp.py](https://github.com/ASAG-ISCAS/PyBDR/blob/master/example/benchmark_lotka_volterra_2d_cmp.py)   | ![](imgs/lotka_volterra_2d_cmp.png) |
 |                          [Jet engine](docs/misc/models.md#jet-engine)                          |          [benchmark_jet_engine_cmp.py](https://github.com/ASAG-ISCAS/PyBDR/blob/master/example/benchmark_jet_engine_cmp.py)          |    ![](imgs/jet_engine_cmp.png)     |
 
 For large time horizons, i.e. consider
 the system [Brusselator](https://github.com/ASAG-ISCAS/PyBDR/blob/master/pyrat/model/brusselator.py)
+
 > For more details about the following example, please refer to
 > our [code](https://github.com/ASAG-ISCAS/PyBDR/blob/master/example/benchmark_brusselator_cmp.py).
 
 | Time instance | With Boundary Analysis            |      Without Boundary Analysi       |
-|:-------------:|-----------------------------------|:-----------------------------------:|
+| :-----------: | --------------------------------- | :---------------------------------: |
 |     t=5.4     | ![](imgs/brusselator_ba_t5.4.png) | ![](imgs/brusselator_nba_t5.4.png)' |
 |     t=5.7     | ![](imgs/brusselator_ba_t5.7.png) | ![](imgs/brusselator_nba_t5.7.png)  |
 |     t=6.0     | ![](imgs/brusselator_ba_t6.png)   |  ![](imgs/brusselator_nba_t6.png)   |
-|     t=6.1     | ![](imgs/brusselator_ba_t6.1.png) |     __Set Explosion Occurred!__     |
+|     t=6.1     | ![](imgs/brusselator_ba_t6.1.png) |     **Set Explosion Occurred!**     |
 
 ### Computing Reachable Sets Based on Boundary Analysis for Neural ODE
 
 For example, consider a neural ODE with following parameters and `sigmoid` $\textit{sigmoid}$ activation function, also
-evaluated in [__Manzanas Lopez,
+evaluated in [**Manzanas Lopez,
 D., Musau, P., Hamilton, N. P., & Johnson, T. T. Reachability analysis of a general class of neural ordinary
 differential equations. In Formal Modeling and Analysis of Timed Systems: 20th International Conference, FORMATS 2022,
 Warsaw, Poland, September 13–15, 2022, Proceedings (pp. 258-277).
-__](https://link.springer.com/content/pdf/10.1007/978-3-031-15839-1_15.pdf):
+**](https://link.springer.com/content/pdf/10.1007/978-3-031-15839-1_15.pdf):
 
 $$
 w_1 = \left[
@@ -215,7 +216,7 @@ w_1 = \left[
 -0.15318371 \quad & -0.275755 \\
 0.24873598 \quad & 0.21018365
 \end{align*}
-\right]        
+\right]
 $$
 
 $$
@@ -296,10 +297,10 @@ In the following table, we show the reachable computed with boundary analysis an
 time instance cases.
 
 | Time Instance |  With Boundary Analysis   | Without Boundary Analysis  |
-|:-------------:|:-------------------------:|:--------------------------:|
+| :-----------: | :-----------------------: | :------------------------: |
 |     t=0.5     | ![](imgs/Neural_BA05.png) |  ![](imgs/Neural_E05.png)  |
 |     t=1.0     | ![](imgs/Neural_BA1.png)  |  ![](imgs/Neural_E1.png)   |
-|     t=1.5     | ![](imgs/Neural_BA15.png) | __Set Explosion Occured!__ |
+|     t=1.5     | ![](imgs/Neural_BA15.png) | **Set Explosion Occured!** |
 
 ## Misc
 
@@ -365,7 +366,20 @@ numpy.seterr(divide='ignore', invalid='ignore')
 > Feel free to contact [dingjianqiang0x@gmail.com](mailto:dingjianqiang0x@gmail.com) if you find any
 > issues or bugs in this code, or you struggle to run it in any way.
 
+## Citing PyBDR
+
+```
+@inproceedings{ding2024pybdr,
+  title={PyBDR: Set-Boundary Based Reachability Analysis Toolkit in Python},
+  author={Ding, Jianqiang and Wu, Taoran and Liang, Zhen and Xue, Bai},
+  booktitle={International Symposium on Formal Methods},
+  pages={140--157},
+  year={2024},
+  organization={Springer}
+}
+```
+
 ## Acknowledgement
 
-When creating this tool, reference was made to models utilized in other reachable set calculation tools such as Flow*,
+When creating this tool, reference was made to models utilized in other reachable set calculation tools such as Flow\*,
 CORA, and others.
